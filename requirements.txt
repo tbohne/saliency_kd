@@ -1,6 +1,6 @@
-rdflib==6.2.0
-Owlready2==0.39
-requests==2.31.0
+rdflib
+Owlready2
+requests
 pandas
 numpy
 git+https://github.com/tbohne/nesy_diag_ontology.git@v0.0.3
