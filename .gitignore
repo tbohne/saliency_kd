@@ -5,3 +5,5 @@ data_vis.svg
 Lightning7/
 .idea/
 build/
+secret_config.py
+*.egg-info/
