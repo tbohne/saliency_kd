@@ -3,4 +3,5 @@ Owlready2
 requests
 pandas
 numpy
+openai
 git+https://github.com/tbohne/nesy_diag_ontology.git@v0.0.3
