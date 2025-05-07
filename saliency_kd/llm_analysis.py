@@ -19,17 +19,30 @@ class LLMAnalysis:
         self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.kgqt = KnowledgeGraphQueryTool()
 
-    def gpt_text_completion(self):
-        completion = self.client.chat.completions.create(
+    def prompt_gpt(self, input_prompt):
+        # TODO: think about max_tokens argument (!)
+        response = self.client.responses.create(
+            # model="gpt-4.1",
             model="gpt-4o-mini",
-            store=True,
-            messages=[
-                {"role": "user", "content": "write a haiku about ai"}
-            ]
+            input=input_prompt
         )
-        return completion.choices[0].message
+        print("response..")
+        print(response.id)
+        print(response.model)
+        print(response.output_text)
+        print(response.temperature)
+        print(response.max_output_tokens)
+        print(response.usage)
 
-    def get_centroid_img_base64(self):
+        # TODO: test those
+        # print(response.usage.input_tokens)
+        # print(response.usage.output_tokens)
+        # print(response.usage.total_tokens)
+
+        return response.output_text
+
+    @staticmethod
+    def get_centroid_img_base64():
         # read img as binary
         with open("img/llm_test_signal.png", "rb") as signal_img:
             return base64.b64encode(signal_img.read()).decode('utf-8')
@@ -37,10 +50,20 @@ class LLMAnalysis:
     def gen_prompt(self):
         name_desc_pairs = self.kgqt.query_all_fault_desc()
         class_prompt = "\n".join([i[0] + ": " + i[1] for i in name_desc_pairs])
-
-        print(INIT_PROMPT + class_prompt + PROMPT_APPENDIX + self.get_centroid_img_base64())
+        prompt = INIT_PROMPT + class_prompt + PROMPT_APPENDIX + self.get_centroid_img_base64()
+        print("-----------------------------------------------------")
+        print("prompt..\n", prompt)
+        print("-----------------------------------------------------")
+        return [
+            # TODO: might need to separate img and text
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
 
 
 if __name__ == "__main__":
     llma = LLMAnalysis()
-    llma.gen_prompt()
+    # print(llma.gen_prompt())
+    llma.prompt_gpt(llma.gen_prompt())
