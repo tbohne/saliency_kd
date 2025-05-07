@@ -11,6 +11,7 @@ from saliency_kd.secret_config import OPENAI_API_KEY
 
 INIT_PROMPT = "There is a number of symbolic descriptions of signals:\n\n"
 PROMPT_APPENDIX = "\n\nDescribe the following base64 coded signal img in a similar fashion, then match the description to the best fitting case: "
+END_NOTE = "\nThe final line of the response string should be just the name of the predicted class - exactly in the above notation."
 
 
 class LLMAnalysis:
@@ -39,7 +40,7 @@ class LLMAnalysis:
         # print(response.usage.output_tokens)
         # print(response.usage.total_tokens)
 
-        return response.output_text
+        return response.output_text.split("\n")[-1]
 
     @staticmethod
     def get_centroid_img_base64():
@@ -50,7 +51,7 @@ class LLMAnalysis:
     def gen_prompt(self):
         name_desc_pairs = self.kgqt.query_all_fault_desc()
         class_prompt = "\n".join([i[0] + ": " + i[1] for i in name_desc_pairs])
-        prompt = INIT_PROMPT + class_prompt + PROMPT_APPENDIX + self.get_centroid_img_base64()
+        prompt = INIT_PROMPT + class_prompt + PROMPT_APPENDIX + self.get_centroid_img_base64() + END_NOTE
         print("-----------------------------------------------------")
         print("prompt..\n", prompt)
         print("-----------------------------------------------------")
@@ -66,4 +67,5 @@ class LLMAnalysis:
 if __name__ == "__main__":
     llma = LLMAnalysis()
     # print(llma.gen_prompt())
-    llma.prompt_gpt(llma.gen_prompt())
+    predicted_class = llma.prompt_gpt(llma.gen_prompt())
+    print("pred class:", predicted_class)
