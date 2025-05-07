@@ -43,7 +43,6 @@ class KnowledgeGraphQueryTool:
             print("####################################")
             print("QUERY: all symbolic fault descriptions")
             print("####################################")
-
         sensor_fault_entry = self.complete_ontology_entry('SensorFault')
         desc_entry = self.complete_ontology_entry('fault_desc')
         name_entry = self.complete_ontology_entry('name')
@@ -55,6 +54,34 @@ class KnowledgeGraphQueryTool:
             }}
             """
         return [(row['fault_name']['value'], row['fault_desc']['value'])
+                for row in self.fuseki_connection.query_knowledge_graph(s, verbose)]
+
+    def query_fault_information_by_name(self, name: str, verbose: bool = True) -> List[Tuple[str, str, str]]:
+        """
+        Queries the symbolic fault information stored in the knowledge graph for the specified fault name.
+
+        :param name: name of the fault
+        :param verbose: if true, logging is activated
+        :return: fault information stored in the knowledge graph for the specified name
+        """
+        if verbose:
+            print("####################################")
+            print("QUERY: all symbolic fault information by name")
+            print("####################################")
+        sensor_fault_entry = self.complete_ontology_entry('SensorFault')
+        desc_entry = self.complete_ontology_entry('fault_desc')
+        name_entry = self.complete_ontology_entry('name')
+        severity_entry = self.complete_ontology_entry('severity')
+        s = f"""
+            SELECT ?fault_name ?fault_desc ?severity WHERE {{
+                ?sensor_fault a {sensor_fault_entry} .
+                ?sensor_fault {desc_entry} ?fault_desc .
+                ?sensor_fault {name_entry} ?fault_name .
+                ?sensor_fault {severity_entry} ?severity .
+                FILTER(STR(?fault_name) = "{name}")
+            }}
+            """
+        return [(row['fault_name']['value'], row['fault_desc']['value'], row['severity']['value'])
                 for row in self.fuseki_connection.query_knowledge_graph(s, verbose)]
 
     @staticmethod
