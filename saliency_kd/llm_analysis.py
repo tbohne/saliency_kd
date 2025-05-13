@@ -23,8 +23,9 @@ class LLMAnalysis:
     def prompt_gpt(self, input_prompt):
         # TODO: think about max_tokens argument (!)
         response = self.client.responses.create(
-            # model="gpt-4.1",
-            model="gpt-4o-mini",
+            model="gpt-4.1",
+            # model="gpt-4o-mini",
+            max_tokens=300,  # controlling costs (meant for responses)
             input=input_prompt
         )
         print("response..")
@@ -69,3 +70,8 @@ if __name__ == "__main__":
     # print(llma.gen_prompt())
     predicted_class = llma.prompt_gpt(llma.gen_prompt())
     print("pred class:", predicted_class)
+
+    # retrieve additional symbolic information
+    kgqt = KnowledgeGraphQueryTool()
+    print("additional symbolic information obtained from KG:")
+    print(kgqt.query_fault_information_by_name(predicted_class))
