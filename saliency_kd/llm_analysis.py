@@ -10,7 +10,7 @@ from saliency_kd.knowledge_graph_query_tool import KnowledgeGraphQueryTool
 from saliency_kd.secret_config import OPENAI_API_KEY
 
 INIT_PROMPT = "There is a number of symbolic descriptions of signals:\n\n"
-PROMPT_APPENDIX = "\n\nDescribe the following base64 coded signal img in a similar fashion, then match the description to the best fitting case: "
+PROMPT_APPENDIX = "\n\nDescribe the following signal img in a similar fashion, then match the description to the best fitting case: "
 END_NOTE = "\nThe final line of the response string should be just the name of the predicted class - exactly in the above notation."
 
 
@@ -23,9 +23,10 @@ class LLMAnalysis:
     def prompt_gpt(self, input_prompt):
         # TODO: think about max_tokens argument (!)
         response = self.client.responses.create(
-            model="gpt-4.1",
+            # model="gpt-4.1",
+            model="gpt-4o",
             # model="gpt-4o-mini",
-            max_tokens=300,  # controlling costs (meant for responses)
+            # max_tokens=300,  # controlling costs (meant for responses)
             input=input_prompt
         )
         print("response..")
@@ -52,15 +53,23 @@ class LLMAnalysis:
     def gen_prompt(self):
         name_desc_pairs = self.kgqt.query_all_fault_desc()
         class_prompt = "\n".join([i[0] + ": " + i[1] for i in name_desc_pairs])
-        prompt = INIT_PROMPT + class_prompt + PROMPT_APPENDIX + self.get_centroid_img_base64() + END_NOTE
+        prompt = INIT_PROMPT + class_prompt + PROMPT_APPENDIX + END_NOTE
         print("-----------------------------------------------------")
         print("prompt..\n", prompt)
         print("-----------------------------------------------------")
         return [
-            # TODO: might need to separate img and text
             {
                 "role": "user",
-                "content": prompt
+                "content": [
+                    {
+                        "type": "input_text",
+                        "text": prompt
+                    },
+                    {
+                        "type": "input_image",
+                        "image_url": f"data:image/png;base64,{self.get_centroid_img_base64()}"
+                    }
+                ]
             }
         ]
 
