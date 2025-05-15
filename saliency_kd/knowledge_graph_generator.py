@@ -14,63 +14,62 @@ from saliency_kd.connection_controller import ConnectionController
 SYMBOLIC_FAULT_INFO = {
     1: {
         "name": "class_1",
-        "fault_desc": "no obvious positive / negative peaks; on average, the signal roughly ends how it started",
+        "fault_desc": "no strong positive / negative peaks; the signal only increases / decreases over time, but not abrupt, small slope); more or less a fuzzy increasing or decreasing line, there might be tiny ups and downs",
         "severity": "X"
     },
     2: {
         "name": "class_2",
-        "fault_desc": "a positive peak towards the start followed by a huge negative drop (below the starting values);"
-                      "the difference between the min and max value is around 500",
+        "fault_desc": "very straight beginning, then going up (positive peak), keeping that a while, then going down below the starting values (huge negative drop), stabilizing there",
         "severity": "X"
     },
     3: {
         "name": "class_3",
-        "fault_desc": "similar to class_2, but not as extreme",
+        "fault_desc": "very similar to class_2, same structure, but not as extreme - a bit more fuzzy as well, but very hard to distinguish",
         "severity": "X"
     },
     4: {
         "name": "class_4",
-        "fault_desc": "similar to class_2 and class_3, but even weaker",
+        "fault_desc": "again, very similar to class_2 and class_3 structure-wise, but even weaker and a bit wider between increase and drop",
         "severity": "X"
     },
     5: {
         "name": "class_5",
-        "fault_desc": "first a small drop, then a positive peak, stabilizing on the high values",
+        "fault_desc": "straight, stable start, then significantly drop, holding that for a period, then a positive peak far above the starting values, stabilizing on the high values",
         "severity": "X"
     },
     6: {
         "name": "class_6",
-        "fault_desc": "more or less straight, then a heavy drop, stabilizing on low values",
+        "fault_desc": "more or less straight, then a heavy drop below the starting values, stabilizing on low values",
         "severity": "X"
     },
     7: {
         "name": "class_7",
-        "fault_desc": "straight, drop, increase, starting and ending the same - ' bath tub'",
+        "fault_desc": "sort of straight, drop, keeping that, increase, starting and ending exactly on the same level - 'bath tub'",
         "severity": "X"
     },
     8: {
         "name": "class_8",
-        "fault_desc": "slightly up, drop below start, then straight",
+        "fault_desc": "straight for a while, then significantly up, before almost immediately a drop follows significantly below the starting values, holding that",
         "severity": "X"
     },
     9: {
         "name": "class_9",
-        "fault_desc": "straight, up, drop, slightly up (below start values)",
+        "fault_desc": "very straight start, then up, holding that, then a drop slightly below the starting values, holding that, and up again to the starting values",
         "severity": "X"
     },
     10: {
         "name": "class_10",
-        "fault_desc": "straight, tiny drop, positive peak, drop - stabilized",
+        "fault_desc": "very straight start, then a very tiny drop, then rising to a positive peak, holding that for a while, then a drop below the starting values - stabilized",
         "severity": "X"
     },
     11: {
         "name": "class_11",
-        "fault_desc": "straight, up, about twice as much down, and up again - stabilized",
+        "fault_desc": "straight start, up, holding that for a while, then about twice as much down, holding that as well, and up again - stabilizing roughly on a level like the starting values",
         "severity": "X"
     },
     12: {
         "name": "class_12",
-        "fault_desc": "quick, intense peak - straight before and after",
+        "fault_desc": "very straight start, then a quick, intense and high amplitude peak (up and down again) - very straight after again on the same level as the starting values",
         "severity": "X"
     }
 }
