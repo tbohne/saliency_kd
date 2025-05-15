@@ -10,7 +10,8 @@ from saliency_kd.knowledge_graph_query_tool import KnowledgeGraphQueryTool
 from saliency_kd.secret_config import OPENAI_API_KEY
 
 INIT_PROMPT = "There is a number of symbolic descriptions of signals:\n\n"
-PROMPT_APPENDIX = "\n\nDescribe the following signal img in a similar fashion, then match the description to the best fitting case: "
+PROMPT_APPENDIX = ("\n\nDescribe the following signal img in a similar fashion, then match the description to the best fitting case."
+                   "Important: only match things that actually match; it is important to also identify signals that don't match any class.")
 END_NOTE = "\nThe final line of the response string should be just the name of the predicted class - exactly in the above notation."
 
 
