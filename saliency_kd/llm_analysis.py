@@ -48,7 +48,13 @@ class LLMAnalysis:
     @staticmethod
     def get_centroid_img_base64():
         # read img as binary
-        with open("img/llm_test_signal.png", "rb") as signal_img:
+        with open("img/filtered_centroids.png", "rb") as signal_img:
+            return base64.b64encode(signal_img.read()).decode('utf-8')
+
+    @staticmethod
+    def get_cluster_img_base64():
+        # read img as binary
+        with open("img/filtered_clusters.png", "rb") as signal_img:
             return base64.b64encode(signal_img.read()).decode('utf-8')
 
     def gen_prompt(self):
@@ -65,6 +71,10 @@ class LLMAnalysis:
                     {
                         "type": "input_text",
                         "text": prompt
+                    },
+                    {
+                        "type": "input_image",
+                        "image_url": f"data:image/png;base64,{self.get_cluster_img_base64()}"
                     },
                     {
                         "type": "input_image",
