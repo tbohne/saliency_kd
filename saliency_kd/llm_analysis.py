@@ -10,7 +10,7 @@ from saliency_kd.knowledge_graph_query_tool import KnowledgeGraphQueryTool
 from saliency_kd.secret_config import OPENAI_API_KEY
 
 INIT_PROMPT = "There is a number of symbolic descriptions of signals:\n\n"
-PROMPT_APPENDIX = ("\n\nYou receive two images: The first img shows a number of cluster plots, each containing all signal (red) and all heatmap (blue) samples assigned to this particular cluster (multivariate, two channels). In the second img, the red signal for each plot is the centroid of the above signals of each cluster. Each centroid plot in the second img corresponds to the samples plot in the above img with the same index. Describe the red centroid signals in the second img in a similar fashion to the above symbolic descriptions. Describe the entire pathway, starting from the left until the end - at the same granularity as the examples above. Only then match each description to the best fitting case. Sometimes several might match in a way, it is important then to select the one that matches more precisely. The first img can provide context in uncertain cases, i.e., the red centroids in the second img are sort of the avg of the red signals in the first img, so in case of doubt, in can make sense to check those. Important: only match things that actually reasonably match; it is important to also identify signals that don't match any class. There also might be duplicates, i.e., more than one centroid matching the same class.")
+PROMPT_APPENDIX = ("\n\nIn the following img, describe each red signal in a similar fashion to the above symbolic descriptions. Describe the entire pathway for each, starting from the left until the end - at the same granularity as the examples above. Only then match each description to the best fitting case. Sometimes several might match in a way, it is important then to select the one that matches more precisely. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Finally, when the class description mentions that a signal keeps some value 'for a while' or something similar, it means that the peak looks more like a rectangle (many steps on the x-axis on its maximum, not its bottom), i.e., clearly distinct from a triangular sort of peak (few points on x-axis on its peak) where it goes up and down again.")
 END_NOTE = "\nThe final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation."
 
 
@@ -24,10 +24,10 @@ class LLMAnalysis:
         # TODO: think about max_tokens argument (!)
         response = self.client.responses.create(
             # model="gpt-4.1",
-            model="gpt-4o", # works
-            # model="o3-2025-04-16", --> best, but expensive
+            # model="gpt-4o", # works
+            model="o3-2025-04-16", # --> best, but expensive
             # model="gpt-4o-mini",
-            # max_tokens=300,  # controlling costs (meant for responses)
+            # max_tokens=300, # controlling costs (meant for responses)
             input=input_prompt
         )
         print("response..")
@@ -72,10 +72,10 @@ class LLMAnalysis:
                         "type": "input_text",
                         "text": prompt
                     },
-                    {
-                        "type": "input_image",
-                        "image_url": f"data:image/png;base64,{self.get_cluster_img_base64()}"
-                    },
+                    # {
+                    #     "type": "input_image",
+                    #     "image_url": f"data:image/png;base64,{self.get_cluster_img_base64()}"
+                    # },
                     {
                         "type": "input_image",
                         "image_url": f"data:image/png;base64,{self.get_centroid_img_base64()}"
