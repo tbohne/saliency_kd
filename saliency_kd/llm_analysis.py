@@ -24,8 +24,8 @@ class LLMAnalysis:
         # TODO: think about max_tokens argument (!)
         response = self.client.responses.create(
             # model="gpt-4.1",
-            # model="gpt-4o",
-            model="o3-2025-04-16",
+            model="gpt-4o", # works
+            # model="o3-2025-04-16", --> best, but expensive
             # model="gpt-4o-mini",
             # max_tokens=300,  # controlling costs (meant for responses)
             input=input_prompt
