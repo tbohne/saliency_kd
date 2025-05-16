@@ -10,8 +10,8 @@ from saliency_kd.knowledge_graph_query_tool import KnowledgeGraphQueryTool
 from saliency_kd.secret_config import OPENAI_API_KEY
 
 INIT_PROMPT = "There is a number of symbolic descriptions of signals:\n\n"
-PROMPT_APPENDIX = ("\n\nYou receive two images: The first img shows a number of cluster plots, each containing all signal and all heatmap samples assigned to this particular cluster (multivariate, two channels). In the second img, the black signal for each plot is the centroid of the above signals of each cluster. The heatmaps displayed there are the centroids for the above heatmap samples interpreted as heatmaps in the sense that high values (peaks) above are bright colored, i.e., important here. Also, each centroid plot in the second img corresponds to the samples plot in the above img with the same index. Ignore any blank cells in the second image. Describe the black centroid signals in the second img in a similar fashion to the above symbolic descriptions. Describe the entire pathway, starting from the left until the end - at the same granularity as the examples above. Only then match each description to the best fitting case. Sometimes several might match in a way, it is important then to select the one that matches more precisely. The first img can provide context in uncertain cases, i.e., the black centroids in the second img are sort of the avg of the red signals in the first img, so in case of doubt, in can make sense to check those. Important: only match things that actually reasonably match; it is important to also identify signals that don't match any class. There also might be duplicates, i.e., more than one centroid matching the same class.")
-END_NOTE = "\nThe final line of the response string should be just the name of the predicted classes (comma separated) - exactly in the above notation."
+PROMPT_APPENDIX = ("\n\nYou receive two images: The first img shows a number of cluster plots, each containing all signal (red) and all heatmap (blue) samples assigned to this particular cluster (multivariate, two channels). In the second img, the red signal for each plot is the centroid of the above signals of each cluster. Each centroid plot in the second img corresponds to the samples plot in the above img with the same index. Describe the red centroid signals in the second img in a similar fashion to the above symbolic descriptions. Describe the entire pathway, starting from the left until the end - at the same granularity as the examples above. Only then match each description to the best fitting case. Sometimes several might match in a way, it is important then to select the one that matches more precisely. The first img can provide context in uncertain cases, i.e., the red centroids in the second img are sort of the avg of the red signals in the first img, so in case of doubt, in can make sense to check those. Important: only match things that actually reasonably match; it is important to also identify signals that don't match any class. There also might be duplicates, i.e., more than one centroid matching the same class.")
+END_NOTE = "\nThe final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation."
 
 
 class LLMAnalysis:
@@ -48,7 +48,7 @@ class LLMAnalysis:
     @staticmethod
     def get_centroid_img_base64():
         # read img as binary
-        with open("img/filtered_centroids.png", "rb") as signal_img:
+        with open("img/centroids4llm.png", "rb") as signal_img:
             return base64.b64encode(signal_img.read()).decode('utf-8')
 
     @staticmethod
