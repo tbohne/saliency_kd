@@ -39,7 +39,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     6: {
         "name": "class_6",
-        "fault_desc": "more or less straight, then a heavy drop below the starting values, stabilizing on low values",
+        "fault_desc": "more or less straight, then a heavy drop below the starting values, stabilizing on low values, i.e., straight high,  ~90 degree drop, straight low",
         "severity": "X"
     },
     7: {
@@ -49,17 +49,17 @@ SYMBOLIC_FAULT_INFO = {
     },
     8: {
         "name": "class_8",
-        "fault_desc": "straight for a while, then significantly up, before almost immediately a drop follows significantly below the starting values, holding that",
+        "fault_desc": "straight for a while, then significantly up, before almost immediately a drop follows roughly back to the starting values; then a slight delay before going significantly below the starting values, holding that",
         "severity": "X"
     },
     9: {
         "name": "class_9",
-        "fault_desc": "very straight start, then up, holding that, then a drop slightly below the starting values, holding that, and up again to the starting values",
+        "fault_desc": "very straight start, then up, holding that, then a drop slightly below the starting values, holding that very briefly, and up again roughly to the starting values",
         "severity": "X"
     },
     10: {
         "name": "class_10",
-        "fault_desc": "very straight start, then a very tiny drop, then rising to a positive peak, holding that for a while, then a drop below the starting values - stabilized",
+        "fault_desc": "very straight start, then a very tiny drop, then rising to a significant positive peak, holding that for a while, then a drop (slightly) below the starting values, stabilizing there",
         "severity": "X"
     },
     11: {
@@ -69,7 +69,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     12: {
         "name": "class_12",
-        "fault_desc": "very straight start, then a quick, intense and high amplitude peak (up and down again) - very straight after again on the same level as the starting values",
+        "fault_desc": "very straight start, then a quick, intense and high amplitude peak (up and down again) - very straight after again on the same level or slightly below starting values",
         "severity": "X"
     }
 }
