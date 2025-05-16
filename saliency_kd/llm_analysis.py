@@ -28,7 +28,7 @@ class LLMAnalysis:
         response = self.client.responses.create(
             # model="gpt-4.1",
             # model="gpt-4o", # works
-            model="o3-2025-04-16", # --> best, but expensive
+            model="o3-2025-04-16",  # --> best, but expensive
             # model="gpt-4o-mini",
             # max_tokens=300, # controlling costs (meant for responses)
             input=input_prompt
@@ -94,11 +94,8 @@ class LLMAnalysis:
     def gen_prompt_ts(self):
         name_desc_pairs = self.kgqt.query_all_fault_desc()
         class_prompt = "\n".join([i[0] + ": " + i[1] for i in name_desc_pairs])
-
         arr = self.get_centroids_ts()
         centroid_lst = [" ".join([str(round(v, 2)) for v in c.tolist()]) for i, c in enumerate(arr)]
-        # str_centroids = "\n\n".join(centroid_lst)
-
         str_centroids = "\n\n".join(f"signal {i + 1}:\n{c}" for i, c in enumerate(centroid_lst))
 
         prompt = INIT_PROMPT + class_prompt + MODE_PROMPT_TS + PROMPT_APPENDIX + END_NOTE + "\n\n" + str_centroids
@@ -128,4 +125,4 @@ if __name__ == "__main__":
     # retrieve additional symbolic information
     kgqt = KnowledgeGraphQueryTool()
     print("additional symbolic information obtained from KG:")
-    print(kgqt.query_fault_information_by_name(predicted_class_ts))
+    print(kgqt.query_fault_information_by_name(predicted_class))
