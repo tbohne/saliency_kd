@@ -14,7 +14,7 @@ from saliency_kd.connection_controller import ConnectionController
 SYMBOLIC_FAULT_INFO = {
     1: {
         "name": "class_1",
-        "fault_desc": "no strong positive / negative peaks; the signal only increases / decreases over time, but not abrupt, small slope); more or less a fuzzy increasing or decreasing line, there might be tiny ups and downs",
+        "fault_desc": "the signal only increases / decreases over time, but not abrupt, relatively small slope); more or less a fuzzy increasing or decreasing line, there might be smaller ups and downs",
         "severity": "X"
     },
     2: {
@@ -54,12 +54,12 @@ SYMBOLIC_FAULT_INFO = {
     },
     9: {
         "name": "class_9",
-        "fault_desc": "very straight start, then up, holding that, then a drop slightly below the starting values, holding that very briefly, and up again roughly to the starting values",
+        "fault_desc": "very straight start, quick dip, then up, holding that, then a drop way below the starting values, holding that, and up again to the starting values or above, stabilizing there",
         "severity": "X"
     },
     10: {
         "name": "class_10",
-        "fault_desc": "very straight start, then a very tiny drop, then rising to a significant positive peak, holding that for a while, then a drop (slightly) below the starting values, stabilizing there",
+        "fault_desc": "very straight start, then a quick drop, then rising to a significant positive peak, holding that for a while, then a drop way below the starting values, stabilizing there",
         "severity": "X"
     },
     11: {
@@ -69,7 +69,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     12: {
         "name": "class_12",
-        "fault_desc": "very straight start, then a quick, intense and high amplitude peak (up and down again) - very straight after again on the same level or slightly below starting values",
+        "fault_desc": "very straight start, then a quick, intense and VERY high amplitude peak (up and down again) - very straight after again on the same level or slightly below starting values",
         "severity": "X"
     }
 }
