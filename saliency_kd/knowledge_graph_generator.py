@@ -19,7 +19,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     2: {  # TODO: not centroid-refined
         "name": "class_2",
-        "fault_desc": "very straight beginning, then going up (positive peak), keeping that a while, then going down below the starting values (huge negative drop), stabilizing there",
+        "fault_desc": "very straight beginning, then going up (positive peak @~200), keeping that a while, then going down below the starting values (huge negative drop), stabilizing there",
         "severity": "X"
     },
     3: {  # TODO: not centroid-refined
@@ -29,12 +29,12 @@ SYMBOLIC_FAULT_INFO = {
     },
     4: {  # TODO: not centroid-refined
         "name": "class_4",
-        "fault_desc": "again, very similar to class_2 and class_3 structure-wise, but even weaker and a bit wider between increase and drop",
+        "fault_desc": "again, very similar to class_2 and class_3 structure-wise, but even weaker and a bit wider between increase and drop; starts relatively straight @~0, peaks @>100, later stabilized @~-100",
         "severity": "X"
     },
     5: {
         "name": "class_5",
-        "fault_desc": "straight, stable start (except noise), then a significant high-slope drop, roughly holding that for a period; finally, it rises to a positive peak far above the starting values with a high slope, stabilizing on the high values (except noise)",
+        "fault_desc": "straight, stable start (except noise) @~0, then a significant high-slope drop @~-200, roughly holding that for a period; finally, it rises to a positive peak far above the starting values @~200 with a high slope, stabilizing on the high values roughly below the peak (except noise)",
         "severity": "X"
     },
     6: {  # TODO: not centroid-refined
@@ -49,7 +49,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     8: {
         "name": "class_8",
-        "fault_desc": "straight (except noise) for a while, then significantly and steeply up to a peak before a drop follows briefly back to about the level of the starting values; this is followed by a significant high-slope drop way below the starting values; then the slope of the decrease is reduced, but the signal further goes down a bit, before roughly the same up again; on this low level, the signal stabilizes except for some comparatively minor ups and downs and noise, towards the end, it slightly lowers even further",
+        "fault_desc": "straight (except noise) for a while @~0, then significantly and steeply up to a peak @~200 before a drop follows briefly back to about the level of the starting values; this is followed by a significant high-slope drop way below the starting values; on this low level @~-200, the signal stabilizes except for noise",
         "severity": "X"
     },
     9: {
@@ -59,7 +59,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     10: {
         "name": "class_10",
-        "fault_desc": "starts with a small drop, otherwise very straight start (except noise), then a quick drop way below the starting values before rising to a significant positive peak (way above the starting values), roughly holding that for a while; afterwards, an intense drop way below the starting values; on this minimum level, the signal stabilizes (except noise)",
+        "fault_desc": "very straight start (except noise) @~0, then a quick drop way below the starting values @~-200 before rising to a significant positive peak (way above the starting values) @~400, roughly holding that for a while; afterwards, an intense drop way below the starting values @~-200; on this minimum level, the signal stabilizes (except noise)",
         "severity": "X"
     },
     11: {  # TODO: not centroid-refined
@@ -69,7 +69,7 @@ SYMBOLIC_FAULT_INFO = {
     },
     12: {
         "name": "class_12",
-        "fault_desc": "very straight start (except noise), then the signal goes up to a quick, intense and very high amplitude peak, followed by going down again to roughly the same level as the starting values or slightly below , i.e., a very straight signal with one intense positive peak",
+        "fault_desc": "very straight start (except noise) @~0, then the signal goes up to a quick, intense and very high amplitude peak @~400, followed by going down again (not necessarily as steep) to roughly the same level as the starting values (<100 away), i.e., a straight signal with one intense positive peak",
         "severity": "X"
     }
 }
