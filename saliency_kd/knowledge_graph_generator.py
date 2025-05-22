@@ -11,7 +11,7 @@ from rdflib import Namespace, RDF
 from saliency_kd.config import FUSEKI_URL, ONTOLOGY_PREFIX
 from saliency_kd.connection_controller import ConnectionController
 
-SYMBOLIC_FAULT_INFO = {
+SYMBOLIC_FAULT_INFO_EOGVerticalSignal = {
     1: {
         "name": "class_1",
         "fault_desc": "the signal only significantly increases / decreases over time, not abruptly (comparatively small slope); more or less a fuzzy line that might be increasing or decreasing over time; there might be smaller ups and downs in between",
@@ -112,9 +112,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, 13):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_EOGVerticalSignal.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_EOGVerticalSignal[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_EOGVerticalSignal[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_EOGVerticalSignal[class_idx]['severity']
         )
