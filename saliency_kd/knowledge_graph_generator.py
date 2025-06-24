@@ -74,6 +74,44 @@ SYMBOLIC_FAULT_INFO_EOGVerticalSignal = {
     }
 }
 
+SYMBOLIC_FAULT_INFO_ElectricDevices = {
+    1: {  # "b" in the paper
+        "name": "class_1",
+        "fault_desc": "activity only starts towards the end of the signal, two peaks",
+        "severity": "X"
+    },
+    2: {  # "c" in the paper
+        "name": "class_2",
+        "fault_desc": "no area of inactivity, there's a permanent up and down (oscillation)",
+        "severity": "X"
+    },
+    3: {  # "e" in the paper
+        "name": "class_3",
+        "fault_desc": "activity leaning towards the second half of the signal, a few peaks, usually larger ones accompanied by smaller ones",
+        "severity": "X"
+    },
+    4: {  # "f" in the paper
+        "name": "class_4",
+        "fault_desc": "no or little activity in the first half, high activity (peak) towards the end of the signal",
+        "severity": "X"
+    },
+    5: {  # "d" in the paper
+        "name": "class_5",
+        "fault_desc": "no activity until the very end of the signal, there's a block of high activity (a wider, rectangular shape)",
+        "severity": "X"
+    },
+    6: {  # "g" in the paper
+        "name": "class_6",
+        "fault_desc": "two peaks in the middle of the signal, the first one larger than the second",
+        "severity": "X"
+    },
+    7: {  # "a" in the paper
+        "name": "class_7",  # TODO: hard to distinguish
+        "fault_desc": "a lot of activity starting roughly at the middle of the signal, spreading towards the end, some inactivity might be in between",
+        "severity": "X"
+    }
+}
+
 
 class KnowledgeGraphGenerator:
     """
