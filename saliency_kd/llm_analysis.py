@@ -52,7 +52,7 @@ class LLMAnalysis:
     @staticmethod
     def get_centroid_img_base64():
         # read img as binary
-        with open("img/centroids4llm.png", "rb") as signal_img:
+        with open("centroids4llm.png", "rb") as signal_img:
             return base64.b64encode(signal_img.read()).decode('utf-8')
 
     @staticmethod
