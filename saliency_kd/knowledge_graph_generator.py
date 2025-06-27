@@ -155,6 +155,138 @@ SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll = {  # concatenated roll, pitch and y
     },
 }
 
+SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM = {  # concatenated roll, pitch and yaw accelerations
+    # no raw values allowed, only pos / neg and shape
+    1: {
+        "name": "class_1",
+        "fault_desc": "starting mildly negative, slips to a deeper negative dip; then a fairly smooth, almost linear climb through zero up to a pronounced positive peak; afterwards a fast fall into a broad, rather flat negative shelf; shallow, noisy recovery toward the neighbourhood of zero; brisk surge to a second, high positive hill, then an undulating descent to mid-positive ground; sudden plunge into a long, very even and deeply negative plateau; finally a long, steady ascent to the overall tallest positive crest, followed by a gentle, jittery glide down that ends slightly below the zero line;",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "begins a little above zero, turns modestly downwards and reaches a first deep negative trough; strong, steady rise to a medium positive summit; small retreat to near-zero, fresh leap to another positive hump; sharp, noisy dive to the overall deepest valley; long irregular wander within the lower negative zone; slow, stumbling climb with brief plateaus that bursts into a short but very high positive spike; swift slide to mid-negative, then a wavy path with minor bumps and dips; last broad ascent to a tall positive ridge and a final, gentle drop that ends just under the zero line;",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "starts on a flat, moderately negative ledge that sags a little further; steady, step-wise climb through zero into a wide, smooth positive plateau; mild, orderly drift down to mid-positive, then a brief slip into a narrow negative shelf that stays almost perfectly level; sudden jump back to small positives, followed by another climb to a series of rounded positive tops; gradual descent through scattered noise into mixed territory around zero; a few sharp downward stabs into the negative side, each quickly reclaimed; one more brisk up-swing to a high positive crest, after which the signal meanders with alternating little bumps and dips and settles just under zero;",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "begins on a flat, low positive ledge, creeps higher to a modest positive ridge; rolls smoothly downhill, crosses zero and keeps sliding into a fairly even, mid-negative bench; sinks a bit more to a deeper, still very flat negative plateau; slow, noisy recovery through the negative ranks and over zero into a broad, medium-high positive table; soft wavering decline that hovers around low positive; renewed descent, slipping back into a rough, mid-negative valley with short spikes; bounces briskly up to a moderate positive hump, drops again into the deepest, noisy negative dip of the record; long, ragged climb to a late positive plateau, then an orderly fade that ends in the low positives;",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "starts modestly positive, leaps almost instantly to a tall, very flat positive mesa; abrupt, steep fall into shallow negatives, drifts even lower to a straighter negative shelf; slow, noisy rise through zero into a low, uneven positive bump; small, wavering slide back to neutral; long, smooth plunge into the broadest, deepest negative plain where it stays rather level; sudden, energetic jump to a second tall positive plateau, followed by a slow, gently rippled glide down across zero into a mild negative tail;",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "opens with a perfectly flat, small positive strip; rapid escalation into a high positive peak, then a head-long dive to a sharp and deep negative trough; energetic climb to another tall positive summit, succeeded by a rolling decline that settles in an extended, very flat mid-negative shelf; lazy, noisy drift upward, wandering about the zero line; renewed, orderly rise to a moderate positive crest and a cushioned descent; a second, shorter plunge into a new but slightly higher negative plateau; final, unhurried climb that produces a neat, medium-high positive table and finishes with a mild, downward taper;",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "begins on a short, low positive bench, slopes rapidly downward into a long, steep negative canyon; vigorous, almost linear climb to a broad high positive hilltop; rolls off, wobbling back into mid-negatives with erratic bumps; hesitant lift followed by scattered ripples around zero; sudden, powerful surge to the record’s highest positive spike; sharp slide to mixed territory, then a string of gentle positive mounds; extended, noisy descent through successive negative plateaus that hit a late, deep trough; strong rebound to a final medium-high positive shelf, ending with a soft dip towards neutrality;",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "starts on a fairly level, moderate negative terrace; nudges slightly lower, then mounts a smooth, sustained climb to a broad, high positive summit; slow, almost symmetrical glide downward, crossing zero and sliding into a deep, choppy negative basin; measured climb to a small positive knoll, quick fall to a flat, shallow negative ledge; abrupt, steep ascent to the overall tallest positive crest; prolonged, gently wavy descent that sinks back into a multi-step negative plateau; gradual lifting out of the depths, passing zero once more to reach a modest positive ridge, and finally a quiet easing down that ends just above the zero mark.",
+        "severity": "X"
+    },
+}
+
+SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Attempt_Two = {  # concatenated roll, pitch and yaw accelerations
+    # no raw values allowed + also no pos / neg information, shape only
+    1: {
+        "name": "class_1",
+        "fault_desc": "starting mid-low, shallow dip to a first little valley, then a long smooth climb that ends in a broad high-standing hump; afterwards a steep plunge to a deep trough, then restless up-and-down motion that settles into a rather flat low terrace; renewed climb to a middle-sized crest, brief sag, then a second taller and wider crest; from there a slow choppy descent, ending in several step-like drops that form a straight very-low plateau; finally a last climb to a sharp peak, followed by a wavering slide back toward the middle with a small noisy tail-off;",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "tiny rise out of the start, quick slip into a pronounced deep pit; strong steady ascent to a broad lofty ridge, then rolling down through bumpy mid-ground; next, another clear climb to a tall top, immediately followed by a fast tumble through a jagged low valley that flattens briefly; gentle ripples around mid-low, then a moderate surge that carries the trace to a middle-high shelf; a sharper push produces an even higher, fairly level summit, which is cut short by a long staircase-like fall to a second broad low table; after some jitter the line ramps all the way back to a high peak, drifts down, wobbles in mid-range and finishes in a small uneven decline;",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "begins on a flat low shelf, inches a bit lower, then arches upward through zero into a modest knoll; accelerates into a steep climb that tops out on a high, slightly noisy plateau; slips back in stages to mid-level, hops sideways, then drops abruptly onto a very even deep terrace; vigorous rebound carries it to a mid-high bench, followed by a secondary lift to another high but rough crest; from there the trace meanders downward, hits scattered little pits and short flat spots, eventually sinks onto another narrow low ledge; a late-stage burst rockets up to a sharp twin-peaked crown, which is chased by a sudden plunge to a broad low floor and some short rattling wiggles;",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "starts on a small flat perch, climbs smoothly to a rounded high hilltop, then glides down past mid-range into an extended slanted descent that ends on a nearly level deep shelf; stays there for a while, then mounts a long steady ramp that leads to a wide twin-topped summit; rolls off that summit, slipping through several noisy middle benches before dropping into another steep ravine with a short flat bottom; a quick rebound hurdles the trace back above mid-line where it wavers, then a final dip and a mild recovery bring it to rest on a modest, slightly uneven plateau;",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "kicks off with a jump onto a high, broad ledge, holding almost flat; abruptly dives past mid-range into a choppy negative hill-side which spreads out into a low, slightly sloping table; a modest rebound creates a middling bump, followed by a steady ramp to a gentle rounded summit; a gradual mottled descent sends the curve into an elongated deep valley that becomes an extended, perfectly flat floor; a sudden step up hoists it to a mid-high shelf, then another rise creates a broad tall ridge; it trickles downward through ripples, plunges again into a long, rough hollow, and ends with tiny wavers on a shallow low shelf;",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "begins as an absolutely flat low strip, then bursts upward in one continuous surge to a narrow high peak; tumbles straight through neutral into a deep bowl, climbs back in a smooth arc to a mid-high knob, and quickly slides down to mid-low; drift and small jerks lead to a very long, dead-flat deep terrace; from that terrace the line tilts upward in a slow staircase, crossing mid-range into a gentle hilly patch; a second very flat, deep bench appears, equally long; finally a calm, steady climb lifts the trace onto a broad high balcony that tapers away in a mild, orderly fall;",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "flat high start, slow gentle sag that accelerates into a pronounced deep canyon; swift rebound climbs beyond neutral into a lofty ridge, then slides off one side into choppy midlands with brief dips; a short pop upward precedes a noisy decline that flattens into a long, rolling low plain; a powerful surge then rockets the curve to its highest crown, after which it drifts down through irregular terraces and shallow bowls; several small wavy crests and troughs follow, ending in a mild staggered descent and a quiet low-lying tail;",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "opens on a short flat low bench, dips a touch deeper, then embarks on a long, smooth ascent to a broad, rounded summit; a gentle, asymmetric glide brings it back toward mid-line, continuing into a saw-toothed slide that settles on a slightly tilted deep shelf; a modest rebound forms a small mid-level hump, after which the signal falls onto a perfectly flat shallow step; suddenly it vaults upward in a strong run that reaches the highest, quite flat crest; from that crest a slow rolling descent sets in, peppered with little ripples and a brief mid-way resting step; later a smaller climb appears, ending in a short, even ledge, then another high ridge grows and finally fades into a long, undulating downturn with a soft noisy finish.",
+        "severity": "X"
+    },
+}
+
+SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Attempt_Three = {  # concatenated roll, pitch and yaw accelerations
+    # everything allowed, also raw values
+    1: {
+        "name": "class_1",
+        "fault_desc": "starting slightly below zero, dipping a little further, then climbing steadily into a broad +2 peak; afterwards gliding all the way down into a long, noisy –1 ½ valley; a shallow sub-zero shelf follows; next comes a second rise to a lower, rounded positive shoulder, then a gentle slide; a brief uptick is cut short by an abrupt plunge into a flat, deep-negative plateau; from that floor the curve recovers in a smooth swing to its highest crest a little above +2, then trickles downward in small oscillations and ends with a modest bump that sinks back under zero;",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "begins with a tiny positive hump, then drops quickly into a –2 trough; rebounds in one clean arc to a strong +1 ¾ ridge, eases back toward the mid-line and stalls; pushes upward again to a second, slightly higher but noisy summit, then slides into another deep hollow; a modest recovery stumbles and the trace collapses to its lowest –2.2 pit; from there it grinds upward, culminating in a four-point crest above +2; a rapid retreat takes it into fresh negatives, a final small climb appears, and the record finishes in gentle, fading ripples around zero;",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "opens on a quiet –0.8 shelf, slips a little deeper, then marches upward in a smooth ramp to a tall +1.7 plateau; slopes down to a low-positive ledge, then drops abruptly into an extended, ruler-straight –1.0 bench; rises again in steps to a moderate positive table and on to a noisy second crest, settles briefly, then plunges into a twin negative well; finishes with uneven under-zero ripples;",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "starts on a mid-level +0.8 mesa that bulges to about +1.6, then tilts slowly downward through zero; glides ever deeper until it locks into a long, flat shelf near –1.6; climbs steadily back, breaks the surface and forms a broad rounded plateau around +1.5; slips away, wavers near baseline and sinks once more to a ragged negative trough; vaults fast to a brief positive spike, tumbles to its deepest –1.9 pit, then executes a final steep ascent to a late +1.8 summit and drifts down in small after-shocks;",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "after a modest +0.4 start it leaps into a tall near-2 plateau, then drops abruptly to hover round zero; continues downward into a noisy –1 valley where it meanders; a gentle climb brings it to a flat hump just above +1 before sagging again; a prolonged slide settles into a wide, flat trench close to –1.8; a sharp rebound carries it to a second broad top near +1.8, which quickly decays, leaving a slow, rippling descent in the negative region;",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "begins with a dozen perfectly flat points at +0.23, then accelerates upward into a sharp +2 crest; plunges head-long through zero into a –1.9 pit; rebounds strongly to a second peak about +1.7, only to slump into an extended, ruler-straight shelf at –1.4; creeps upward in small rolling waves to a low dome around +1.4; slips back into another flat –1.25 bench and finally climbs a gentle staircase that peaks just below +1.4 before ebbing away quietly;",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "opens on a flat +0.8 plateau, falls steeply into a –2 trough, swings back in a vigorous arc to a +1.7 crest and slides through choppy mid-range undulations; a second dive bottoms near –1.6, followed by a powerful surge that towers above +2.3; this summit collapses into jittery oscillations that drag the trace back into the –1.7 basin; in the closing scene it climbs again to a late +1.5 ridge before losing altitude and ending a little below zero;",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "starts on a broad –0.8 table, then ramps steadily up to about +1.7; declines gradually, passing through zero and carving out a long negative slope that bottoms just below –1.4; a modest bounce gives a short positive bump, followed by a lean –0.5 perch; from this base the signal rockets to its tallest peak a bit over +2.2, then cascades back down into a long, uneven descent reaching –1.6; finally it drifts upward once more, forms a medium-height mound near +1.4 and coasts to rest just above the baseline.",
+        "severity": "X"
+    },
+}
+
 
 class KnowledgeGraphGenerator:
     """
@@ -193,9 +325,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll.keys()) + 1):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM[class_idx]['severity']
         )
