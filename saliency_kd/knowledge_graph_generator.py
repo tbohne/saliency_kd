@@ -112,6 +112,49 @@ SYMBOLIC_FAULT_INFO_ElectricDevices = {
     }
 }
 
+SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll = {  # concatenated roll, pitch and yaw accelerations
+    1: {
+        "name": "class_1",
+        "fault_desc": "potentially straight (noisy), then steadily up towards a peak, then quickly down below the starting values and a bit noisy up again; steady but noisy rise, at some point straight before way more up to a peak, then heavily down again; being low, then rising steadily towards a peak, then slightly down to a plateau, then noisy ups and downs",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "straight, then drop to bottom, up again towards a peak, down a bit and up to another peak; drop down and up again, straight, down again, then a small-slope noisy increase until a peak; going down from the peak, noisy, but relatively stable, only relatively minor ups and downs, some peaks",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "starting low, slowly but steadily going up to a positive peak or plateau, afterwards down again; very straight plateau, then going upwards to a noisy peak, then down and straight noisy plateau; then up again to some noisy peak, afterwards noisy down again;",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "starting high, very small slope downwards trend until at bottom; starting from bottom, going steadily upwards until a peak or plateau, then down again and up again, noisy; starting noisy high, down to a noisy plateau and up to a positive noisy plateau",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "starting mid lvl, going up, plateau, then going down a bit, then straight (noisy); going up a bit, very straight long plateau, then small-slope down again and finally up again; starting high, plateau, smaller slope and straight downwards trend",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "starting straight, upwards and huge drop afterwards, then up again to a peak and down again, noisy but straight; starting relatively low and straight, climbing up (small slope), reaching a very straight and long plateau; sharp drop, slowly climbing up again, stabilizing on high values, straight",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "starting relatively high, then drops quickly, going up again to a clear positive peak, then noisy down again, straight plateau; starting straight and noisy with smaller ups and downs, steadily downwards trend to a negative peak, then going significantly up to a peak and down again after, afterwards sort of straight; straight, going downwards, valley, up again, stabilizing, bit noisy downwards trend",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "briefly straight, up to peak, very small slope downwards trend; starting low, going up, then noisy straight, then up to a huge peak and way downwards again, slowly rising afterwards; relatively straight, rising to a peak, followed by going down to a valley and noisy up again in the end",
+        "severity": "X"
+    },
+}
+
 
 class KnowledgeGraphGenerator:
     """
@@ -150,9 +193,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_EOGVerticalSignal.keys()) + 1):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_EOGVerticalSignal[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_EOGVerticalSignal[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_EOGVerticalSignal[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll[class_idx]['severity']
         )
