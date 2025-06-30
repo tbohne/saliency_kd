@@ -374,6 +374,64 @@ SYMBOLIC_FAULT_INFO_Mallat_LLM = {
     },
 }
 
+SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM = {
+    1: {
+        "name": "class_1",
+        "fault_desc": "starts slightly above zero, slips almost linearly into a shallow negative band and sits there with low-amplitude wobble; without warning a very steep positive surge shoots to an extreme main peak, then falls back almost symmetrically to the old neighbourhood and even overshoots a little into the negative; a second, much smaller hump follows, afterwards the trace settles into a long, very flat but clearly deeper negative plateau with microscopic jitter and finishes still negative.",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "begins moderately negative, then performs a smooth, almost textbook ramp across zero up to a tall, broad positive apex; drifts back down through zero to a near-flat region around zero, makes a secondary medium-sized rise, afterwards decays gradually, ending in a long, gently sloping negative shelf that oscillates quietly around a mid-negative level.",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "opens inside a shallow negative corridor with tiny ripples, suddenly accelerates into a very steep climb that culminates in a single dominant high peak; the return is nearly as quick, plunging past zero into a steady mid-negative plateau; later it builds a secondary, only half-sized hill, then re-enters the earlier negative band and remains there in an unusually long, almost ruler-straight plateau with only fine-grained noise.",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "starts in a mild negative glide, holds a short flat section, then ramps sharply upward into a first positive dome; slips back toward zero but, before reaching it, turns into a broad second and even higher crest; from there the curve slides continuously into an extended, deep negative shelf with very little variation, interrupted only by two tiny positive blips, before ending still deep and flat.",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "begins clearly positive but immediately declines, crosses zero and cruises in a light negative trough; an abrupt, very steep ascent follows, forming the global maximum; a smooth descent takes the signal below one again and a medium-sized secondary hump appears; afterwards the trace drops into a mid-negative regime that slowly deepens and finally turns into a long, almost flat negative plateau with low-level jitter.",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "initial segment sits in mid-negative, then a dramatic, almost exponential climb leads to an isolated, tall positive peak; the decay is gentle at first, followed by undulating shoulders and two small positive bumps; eventually the curve dives back under zero and flattens out into a protracted deep-negative table where only fine noise is visible, ending there.",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "holds a very flat corridor close to −0.5 for quite some time, then shoots almost vertically into an exceptionally high positive spike; the fall is slower, producing a shoulder and a secondary medium crest; from there the signal slides back into its original negative band, executes a set of minor saw-tooth ripples, and finally levels out again around the same negative value it started from.",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "sits stably in a mid-negative shelf, then produces a smooth but powerful climb to a broad positive plateau, followed by a rounded descent; a second, slightly lower hill appears, after which the trace heads steadily downward into a deep negative region; there it locks onto a very flat floor with scarcely any movement and remains there until the end.",
+        "severity": "X"
+    },
+    9: {
+        "name": "class_9",
+        "fault_desc": "opens with a medium positive overshoot that rapidly decays through zero into slight negativity; after a short quiet spell it mounts a long, steady ascent to a wide positive summit; the return is gradual, then the curve settles into a stair-like series of ever-deeper negative steps, finally stabilising in a flat mid-negative band with minor jitter.",
+        "severity": "X"
+    },
+    10: {
+        "name": "class_10",
+        "fault_desc": "starts mildly negative, makes a small rounded positive bump, falls back to near zero, then accelerates into a pronounced, multi-sample climb that yields the global peak; the subsequent descent is gentle at first, then breaks into several small terraces before sliding into a deep, nearly horizontal negative plateau where it stays, showing only low-amplitude flicker.",
+        "severity": "X"
+    },
+    11: {
+        "name": "class_11",
+        "fault_desc": "begins clearly positive with several small oscillatory swells, gradually trending upward into a modest multi-peak cluster; after a plateau the signal changes character and undertakes a slow but persistent decline, crosses zero and keeps falling into ever deeper negative territory; the last third is a long, steadily darkening negative slope that finally flattens, sitting very low with extremely small ripples.",
+        "severity": "X"
+    },
+}
+
 
 class KnowledgeGraphGenerator:
     """
@@ -412,9 +470,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_Mallat_LLM.keys()) + 1):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_Mallat_LLM[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_Mallat_LLM[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_Mallat_LLM[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM[class_idx]['severity']
         )
