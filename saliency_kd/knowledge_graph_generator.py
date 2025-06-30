@@ -331,6 +331,49 @@ SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic = {  # concatenated rol
     },
 }
 
+SYMBOLIC_FAULT_INFO_Mallat_LLM = {
+    1: {
+        "name": "class_1",
+        "fault_desc": "Starts at a moderately negative level with a shallow additional dip, then performs a long, almost linear climb that crosses zero and forms a first wide, fairly smooth positive mound; after a short, still–positive shoulder the curve slips back toward the zero line, hovers with small irregular ripples, drops through a shallow negative hollow, recovers into a noisy band around the negative baseline, and finally executes a very long, smooth ascent to the global, rounded positive maximum followed by a steady, monotone decline that ends in a pronounced negative trough.",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "Begins slightly negative and glides down a bit more, then undertakes a prolonged, regular rise through zero to a broad, gently undulating positive table; from there it lifts once more to a secondary, narrower crest, slips down in two steps to a mid-positive landing, falls abruptly toward the zero line, wiggles around it, dives into a deep but fairly smooth negative well, and finishes with a sequence of small, almost identical negative ripples.",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "Initiates in the lower negative range, flattens briefly, and then performs a long, steady climb that crosses zero, tops out in a gentle positive dome, hovers on a noisy shelf, relaxes slightly, climbs again into a second, smoother ridge, loses height in a staircase manner to a mild positive bench, plunges rapidly through zero into a broad negative basin with weak oscillations, then copies the earlier pattern: climbs to a late, tall but rounded positive hump and finally glides back down into a deep negative ending.",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "Starts negative with a minor extra sag, proceeds into an extended, rather linear lift through zero to a first wide positive plateau, steps up once more into a slightly higher but narrower crest, retreats in two stages to a near-zero terrace, slips underneath into a shallow negative dip, oscillates weakly, climbs anew to a late, highest rounded summit, and ends with a slow, almost linear descent that settles in a sizeable negative trough.",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "Opens modestly negative and dips a bit deeper, then runs up in a long, steady ramp that crosses zero, producing a broad, fairly flat positive shelf; after a short lull it rises again into a secondary, noisy bulge, declines in three small terraces toward the zero axis, slips into a mid-negative pocket, hovers with low-amplitude ripples, mounts a delayed, smooth surge to the global positive maximum, and finally fades away in a drawn-out, almost monotonic slide to a deep negative finish.",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "Commences in the lower negative zone, touches a slightly deeper minimum, then undergoes a prolonged straight ascent through zero to a spacious, gently wavy positive plateau; this is followed by an extra upward push into a tighter positive crest, a gradual two-step fall to a mild positive ledge, an abrupt dive into a broad negative valley with small, regular ripples, a late-stage smooth climb to the ultimate rounded peak, and a long, steady, almost linear descent that ends well below zero.",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "Begins slightly negative with a subtle further dip, executes a long, near-linear climb through zero into a very wide, softly undulating positive plain, steps higher into a narrow positive ridge, eases down to a mid-positive shoulder, drops rapidly toward zero, vibrates gently about the baseline, sinks into a deep but smooth negative bowl, stays there with small repetitive ripples, mounts a final smooth ascent to a broad, highest positive dome, and concludes with an extended, monotone glide back to a marked negative trough.",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "Starts in the negative range with a tiny extra sag, then follows a lengthy, almost linear rise through zero that builds a broad, slightly noisy positive shelf; gains additional height into a secondary, tighter crest, backs off in two stages to a near-zero landing, falls sharply into a wide negative basin, oscillates mildly, climbs late to the global rounded maximum, and finally drifts down in a slow, steady decline that settles in a pronounced negative well.",
+        "severity": "X"
+    },
+}
+
 
 class KnowledgeGraphGenerator:
     """
@@ -369,9 +412,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic.keys()) + 1):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_Mallat_LLM.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_Mallat_LLM[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_Mallat_LLM[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_Mallat_LLM[class_idx]['severity']
         )
