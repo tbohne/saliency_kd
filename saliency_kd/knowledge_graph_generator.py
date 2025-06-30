@@ -287,6 +287,50 @@ SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Attempt_Three = {  # concatenated
     },
 }
 
+SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic = {  # concatenated roll, pitch and yaw accelerations
+    # everything allowed, also raw values
+    1: {
+        "name": "class_1",
+        "fault_desc": "short shallow-negative lead-in, sinks to a first broad deep-negative shelf, then ramps up through zero to a high positive crest, collapses abruptly into a long deep-negative plateau with noisy ripple, drifts upward to a mid-positive hump, slides back to baseline, makes a second sudden plunge into a repeated deep-negative shelf, finally climbs all the way to a tall positive peak and eases down toward slightly negative end values",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "starts mildly positive, slips into a pronounced negative valley, rises steadily to a medium-high positive hill, falls again to a short negative dip, surges to a second higher positive ridge, tumbles into an extended very-negative trough, stages a late strong rally to its highest positive peak, then trails off with another quick descent into low-negative territory",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "begins on a low-negative step, edges further down to a shallow minimum, turns around and ascends through zero to a broad mid-positive plateau, drops abruptly to a flat mid-negative shelf, performs a second climb to a similar positive shelf, oscillates with several box-shaped steps of alternating sign, and coasts out close to baseline",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "moderate positive plateau at the start, gentle rise to a rounded high, long monotonic slide into a wide deep-negative bench, pauses there, then executes a smooth climb back to a symmetrical high positive shelf, followed by another extended descent that overshoots into its deepest negative excursion before drifting back upward toward weakly positive levels",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "short low-positive preamble, jumps quickly onto a tall flat positive mesa, breaks away into a steep dive that bottoms in the mid-negative range, meanders there with small saw-teeth, lifts gradually into a low positive shelf, dives much deeper to its most negative shelf, rebounds explosively to a second tall positive plateau, and finally decays step-wise toward a mild negative finish",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "long quiescent near-zero strip, smooth acceleration to a single high positive peak, sharp reversal into a deep negative chasm, strong recovery up to a mid-high positive shoulder, settles into a prolonged mid-negative shelf with minimal drift, then climbs staircase-like back to a broad positive roof and ends with a gentle downward taper",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "steady mid-positive ledge, rapid fall into a pronounced negative well, vigorous climb to a high positive summit, slides off into a noisy mid-negative dip, rebounds into several smaller positive bumps, repeats a sequence of shrinking negative swings, then finishes with a final modest positive rise followed by a slight sag toward zero",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "flat low-negative opening, slow acceleration to a long rounded positive summit, protracted downhill glide that crosses zero and levels out on a mid-negative shelf, short positive rebound, slips back to near-baseline, launches into its tallest positive spike, afterward descends steadily through a layered series of negative steps, and closes with a smooth climb to a medium positive plateau",
+        "severity": "X"
+    },
+}
+
 
 class KnowledgeGraphGenerator:
     """
@@ -325,9 +369,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM.keys()) + 1):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic[class_idx]['severity']
         )
