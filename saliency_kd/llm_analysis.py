@@ -13,7 +13,8 @@ from saliency_kd.secret_config import OPENAI_API_KEY
 INIT_PROMPT = "There is a number of symbolic descriptions of signals:\n\n"
 MODE_PROMPT_IMG = "\n\nIn the following img, describe each red signal in a similar fashion to the above symbolic descriptions."
 MODE_PROMPT_TS = "\n\nIn the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions."
-PROMPT_APPENDIX = "\n\nDescribe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely (no part of your description should be missing in the symbolic class description). If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. When the class description mentions that some values are kept 'for a while' or something similar, it means that the peak looks more like a rectangle (many steps with roughly same val, something like 20% of the signal length), i.e., clearly distinct from a triangular sort of peak (few points with roughly the same val, perhaps around up to 5% of the signal length) where it goes up and down again. Finally, note that peaks to be considered are only very significant ones, i.e., roughly at least a third of the signal's value range or more, other things are to be considered noise."
+# removed: It is more about the general trends and patterns, not necessarily particular peaks.
+PROMPT_APPENDIX = "\n\nDescribe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Don't use raw values - indicating that values are positive or negative is feasible, but no exact value."
 END_NOTE = "\nThe final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation."
 
 
@@ -52,7 +53,7 @@ class LLMAnalysis:
     @staticmethod
     def get_centroid_img_base64():
         # read img as binary
-        with open("img/centroids4llm.png", "rb") as signal_img:
+        with open("centroids4llm.png", "rb") as signal_img:
             return base64.b64encode(signal_img.read()).decode('utf-8')
 
     @staticmethod
