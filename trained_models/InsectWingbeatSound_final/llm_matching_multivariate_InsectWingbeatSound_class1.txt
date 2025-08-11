@@ -1,0 +1,757 @@
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881ea15b4f88198868033a734a1f08603739932e8a846dc
+o3-2025-04-16
+signal 1  
+It starts with a brief, faintly positive blip, slips into a shallow negative dip during the first half-dozen indices, then makes a tiny early bump at about index 6.  After that it launches into a steep, almost straight climb that towers to its dominant summit near index 43.  From there it rolls downhill, crossing zero and flattening into a broad, low shelf that hovers close to the axis.  A noticeably smaller, smoother second swell rises around index 98, after which the trace slides gently away and settles in a long, nearly constant negative terrace with only small, low-amplitude ripples to the end.  
+best-matching class: class_3  
+
+signal 2  
+The curve opens a touch below zero and surges almost immediately into its highest crest around index 18.  It then dives through a mid-level hollow in the mid-30 s, rebounds to a distinctly lower hill peaking near index 48, and thereafter weakens progressively.  Apart from a modest tertiary bump in the mid-70 s, the oscillations taper in size while the whole series drifts downward, ultimately resting on an extended, gently declining negative plain mottled with mild noise.  
+best-matching class: class_2  
+
+signal 3  
+Beginning in modest negatives, the line drifts slightly lower to a shallow floor near index 18 before rocketing upward into a sharp first peak at about index 39.  It then drops smartly back through zero into a broad negative plateau, from which it climbs again—this time higher—to reach its overall summit close to index 94.  After that second, broader mountain the profile eases steadily downward, crosses below zero once more, and stretches out into a long, almost level negative shelf broken only by minor undulations and a small late bump near index 149.  
+best-matching class: class_4  
+
+class_3,class_2,class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=5980, output_tokens_details=OutputTokensDetails(reasoning_tokens=5568), total_tokens=10030)
+pred class: class_3,class_2,class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3,class_2,class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881eace67fc819ab81e6e30edbca7210ce88a82ba251f09
+o3-2025-04-16
+signal 1  
+The trace opens with a few faint positive ticks that slip almost immediately into shallow negatives, then meanders near the baseline until it explodes upward in a single, steep climb whose dominant peak crowns about index 43. From there it cascades back through zero, dips into moderately deep negatives, rebounds into a broader but far lower secondary hill peaking near index 100, and finally decays into a very long, virtually flat negative shelf broken only by tiny, low-amplitude ripples.  
+Best fit: class_3  
+
+signal 2  
+Starting a hair below zero, the curve vaults sky-ward to its principal summit around index 18, plunges into a mid-level trough in the low thirties, then rallies into a noticeably smaller hill centred near index 48. After that it fades through progressively weaker undulations, slipping beneath zero and stretching out into an extended, gently declining negative plain.  
+Best fit: class_2  
+
+signal 3  
+Following a mild early slide that bottoms near index 18, the series surges into an initial crest close to index 39, retreats all the way into a broad negative terrace, then mounts a second—and highest—summit around index 94 before easing downward into a sustained low-lying negative band dotted with only light noise.  
+Best fit: class_4  
+
+class_3,class_2,class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=7398, output_tokens_details=OutputTokensDetails(reasoning_tokens=7104), total_tokens=11448)
+pred class: class_3,class_2,class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3,class_2,class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881eb9f51f4819ab7e5fcf2d6baa24d0654ae35b442914b
+o3-2025-04-16
+Signal 1  
+It opens with a tiny positive blip, slips briefly below zero, then throws up a modest first hill centred on index 6. From there it meanders for a short while before charging into a long, very steep ascent whose dominant summit lies at about index 43. That crest is followed by a smooth downhill slide that crosses the axis in the mid-sixties, bottoms out in the high ­-0.4s, and then rebounds into a noticeably broader but distinctly lower second mound peaking near index 100. Afterwards the trace sinks once more and stretches out into a prolonged, almost level negative shelf, broken only by a few low, shallow ripples scattered through the 130s and 150s.  
+Best-matching class: class_3  
+
+Signal 2  
+Starting a touch below zero, the curve launches into a sharp, sustained climb that tops out in its main peak around index 18. It then drops quickly through a middling dip and, after a short pause, swings upward again to a distinctly smaller secondary crest near index 48. From that point on the profile weakens step by step, its oscillations shrinking as it drifts downward, eventually settling into a long, gently declining negative terrace that wanders around the ­-0.5 level for the remainder of the record.  
+Best-matching class: class_2  
+
+Signal 3  
+The series begins in light negatives that deepen toward a shallow trough near index 15, after which it surges upward into an initial peak close to index 40. It slips right back through zero into a broad negative bench, then rallies once more—this time more forcefully—to reach its highest crest almost exactly at index 95. Following that second and dominant mountain, the trace glides downward across the axis, rises only to a much smaller hump in the 150s, and finally levels out into a wide, low-lying negative plain characterised by muted, repetitive undulations.  
+Best-matching class: class_4  
+
+class_3, class_2, class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=7788, output_tokens_details=OutputTokensDetails(reasoning_tokens=7360), total_tokens=11838)
+pred class: class_3, class_2, class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3, class_2, class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881ec7889d0819b83b97160ac6eb6be097eed258e3a842a
+o3-2025-04-16
+Signal 1  
+It opens with a tiny positive twitch, slips into a brief shallow dip through zero, then forms a modest early bump around index 6. After a short, almost level spell it dives once more below the axis, and from there launches a head-long climb that culminates in the dominant summit near index 43. The profile then glides downward through waning positives, crosses zero in the mid-fifties and rests on a long, nearly flat near-zero strip. A secondary, distinctly lower swell centred on about index 99 rises only modestly before the trace sinks into an extended, virtually constant negative shelf that shows nothing more than low-amplitude ripples to the end.  
+Best-matching class: class_3  
+
+Signal 2  
+Beginning fractionally below zero, the curve vaults upward to its overall crest at roughly index 18, then slips into a mid-level trough that bottoms in the mid-thirties. It rebounds to a noticeably smaller hill peaking close to index 49, slides down again and, after a few ever-weaker undulations (the last minor rise near index 76), subsides into a long, gently declining negative expanse.  
+Best-matching class: class_2  
+
+Signal 3  
+A mild early slide bottoms out near index 19 before the signal surges to a first peak around index 39. It falls back through positive territory into a deep negative terrace, then mounts a second, higher crest whose apex lies close to index 93. From there it eases steadily downward into a broad, low-lying negative band, broken only by slight, low-level noise toward the finish.  
+Best-matching class: class_4  
+
+class_3,class_2,class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=3952, output_tokens_details=OutputTokensDetails(reasoning_tokens=3584), total_tokens=8002)
+pred class: class_3,class_2,class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3,class_2,class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881ed1352d8819abf643430d44db6ce0711a2023fd8b6da
+o3-2025-04-16
+signal 1  
+The series begins with a brief positive blip that sinks into a short, shallow negative hollow, then idles close to the zero line. From the low-thirties it charges upward, cresting decisively at its tallest peak near index 43. It glides downward, crosses through zero into a mild trough in the mid-sixties, recovers into a broader yet noticeably lower secondary hill whose crown sits around index 98, and at last drifts away into a long, almost flat negative shelf broken only by faint ripples.  
+Best-matching class: class_3  
+
+signal 2  
+Opening a shade below zero, the trace vaults steeply to its main summit at about index 18. It drops into a mid-level dip in the mid-thirties, rebounds to a smaller ridge peaking near index 48, and then diminishes through successively weaker undulations until it merges into an extended, gently declining negative expanse.  
+Best-matching class: class_2  
+
+signal 3  
+The curve starts in light negatives, slides a little further to its shallowest point near index 20, then bursts upward to an early crest around index 39. From there it retreats through zero into a fairly deep negative plateau, mounts a fresh ascent that culminates in its highest summit close to index 94, and finally eases downward into a sustained, low-lying negative band with only minor flickers.  
+Best-matching class: class_4  
+
+class_3, class_2, class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=4018), output_tokens=7878, output_tokens_details=OutputTokensDetails(reasoning_tokens=7552), total_tokens=11928)
+pred class: class_3, class_2, class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3, class_2, class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881ed907f0481999967eebb1b2af37e015030b8f556b4d6
+o3-2025-04-16
+signal 1  
+It opens with a brief positive flick, glides into a very shallow negative trough, then shoots up to a modest early crest near index 6.  After hovering close to the zero line for a short while it gathers momentum in a long steep ramp that towers to its dominant summit around index 43.  From there the trace slopes downward, crosses through zero and slips into a broad, almost flat negative terrace.  Out of this lowland it mounts one noticeably smaller rebound that tops out near index 85, after which it subsides into an extended, gently wavering negative shelf. → best fits class_6  
+
+signal 2  
+Starting a shade below zero, the series gives a small positive jab at index 2 and then races upward in a sharp ascent that reaches its highest crest close to index 18.  It then tumbles through zero into a mid-depth dip in the low-thirties, recovers into a distinctly smaller hill centred about index 48, and thereafter fades through ever-diminishing ripples until it settles on a long, slowly declining negative plain. → best fits class_2  
+
+signal 3  
+The curve begins in mild negatives, slips a little lower to an early bottom near index 18, then surges into its first peak at roughly index 39.  It falls back past zero into a deep negative platform, climbs again—this time to its overall summit close to index 94—and finally eases downward into a broad, low-lying negative plateau peppered only with faint, low-amplitude noise. → best fits class_4  
+
+class_6,class_2,class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=5847, output_tokens_details=OutputTokensDetails(reasoning_tokens=5504), total_tokens=9897)
+pred class: class_6,class_2,class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_6,class_2,class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881ee39b8d4819aa91e8b7876aa24030f1905f396ea264d
+o3-2025-04-16
+signal 1  
+Description: It opens with a brief flicker above zero, quickly slips into a shallow sub-zero trough that lasts several dozen samples, then rockets upward in a single, very steep ascent to the absolute summit near index 43. From that high point the curve slides steadily downward, crosses into a broad, almost level negative plateau and, apart from one modest secondary rise centred on index 91, drifts on with only small low-amplitude ripples.  
+Best matching class: class_1  
+
+signal 2  
+Description: Beginning fractionally below zero, the trace shoots up to its dominant crest around index 18, falls away into a mid-level dip, rebounds to a noticeably smaller hill at about index 48, and thereafter dwindles through ever-weaker undulations into a long, gently declining negative stretch.  
+Best matching class: class_2  
+
+signal 3  
+Description: Starting in light negatives, the curve accelerates into a steep mountain whose apex sits near index 39, plunges back through zero, climbs again into a broader though slightly lower hill peaking close to index 94, and finally fades into an extended, nearly flat negative shelf punctuated by minor oscillations.  
+Best matching class: class_3  
+
+class_1,class_2,class_3
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=4944, output_tokens_details=OutputTokensDetails(reasoning_tokens=4672), total_tokens=8994)
+pred class: class_1,class_2,class_3
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_1,class_2,class_3")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881eebbab1481989c17f3d87cd1df4706beda53a508654d
+o3-2025-04-16
+Signal 1  
+It opens with a small positive blip around index 6, slips into a shallow sub-zero hollow, then vaults into its dominant pinnacle near index 43. From there it descends steadily through zero onto a broad, almost level negative shelf, breaks that monotony with a much smaller secondary bump centred a little below index 90, and finally fades into a long, nearly flat, faintly rippled negative stretch.  
+Best class match: class_3  
+
+Signal 2  
+Beginning just under zero, the trace shoots upward in a brisk climb to its main summit close to index 18, drops into a middle-range dip that bottoms in the mid-thirties, rebounds to a lower, round-topped hill peaking near index 48, and then dwindles through increasingly weak undulations into an extended, gently declining negative band.  
+Best class match: class_2  
+
+Signal 3  
+The curve starts with a gentle downward glide that bottoms in the high teens, surges to an early crest around index 39, falls away into a deep negative terrace, mounts a second—and highest—crest close to index 96, and thereafter relaxes into a long-lasting, low-amplitude, negative plateau.  
+Best class match: class_4  
+
+class_3, class_2, class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=4018), output_tokens=2972, output_tokens_details=OutputTokensDetails(reasoning_tokens=2688), total_tokens=7022)
+pred class: class_3, class_2, class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3, class_2, class_4")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881eefbaef0819b880c53981aebd8e70b475a099904338c
+o3-2025-04-16
+signal 1  
+The trace opens with a brief, low-amplitude positive tick, slides a little below zero for a handful of samples, then makes a modest early hump (~1.5 at index 6).  After hovering in small positives it dips once more (around index 28) and immediately launches into a rapid, near-exponential climb that reaches the overall summit (≈5.3) at index 43.  From there it rolls down through zero, bottoms in a shallow negative trough in the high-60s, and rebounds into a broader but distinctly lower hill that tops near index 99 (≈1.2).  Thereafter the curve loses height steadily, crossing the axis again and finally fading into a long, almost flat negative terrace punctuated only by tiny ripples.  
+Best class match: class_3  
+
+signal 2  
+Beginning a touch below zero, the signal shoots upward in a steep run that culminates in its dominant crest (≈4.7) near index 18.  It then dives through a mid-level dip centred in the low-30s, rises once more to a smaller secondary hill (≈3.2) at about index 48, and afterwards weakens progressively.  A sequence of ever smaller undulations carries it back toward the axis and then into an extended, gently sinking negative shelf that persists—with only slight noise—through to the end.  
+Best class match: class_2  
+
+signal 3  
+The curve starts in mild negatives, accelerates into a sharp mountain whose peak (≈4.0) sits at index 39, and plunges back below zero by the mid-50s.  It then climbs again, forming a wider but lower second summit (just under 4.0) around index 94, before sliding downward once more.  After a brief series of diminishing bumps the trace settles into a long, quietly undulating negative plateau, broken only by a small ripple near index 149, and remains there to the finish.  
+Best class match: class_3  
+
+class_3, class_2, class_3
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=4018), output_tokens=9334, output_tokens_details=OutputTokensDetails(reasoning_tokens=8896), total_tokens=13384)
+pred class: class_3, class_2, class_3
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3, class_2, class_3")
+            }
+            
+[]
+####################################
+QUERY: all symbolic fault descriptions
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+            }
+            
+-----------------------------------------------------
+prompt..
+ There is a number of symbolic descriptions of signals:
+
+class_1: It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.
+class_2: Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.
+class_3: The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.
+class_4: After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.
+class_5: A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.
+class_6: Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.
+class_7: It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.
+class_8: Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.
+class_9: Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.
+class_10: After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.
+class_11: Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.
+
+In the following separated lists of values, describe each list, i.e., signal, in a similar fashion to the above symbolic descriptions.
+
+Describe them at the same granularity as the examples above. Only then match each description to the best fitting class. Sometimes several might match in a way, it is important then to select the one that matches more precisely. If there ever is a case that really does match several classes VERY WELL, mention your best guess and then mention the alternative in brackets as well. Important: only match things that actually reasonably match; it is crucial to also identify signals that don't match any class. There also might be duplicates, i.e., more than one signal matching the same class. Important: Not every detail must match, it is important that it matches the broad scheme best, not every detail. Focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices). When it comes to the matching, it is important that the indices of peaks must allow some tolerance for deviations, they should only roughly match.
+The final line of the response string should be just the names of the predicted classes (comma separated) - exactly in the above notation.
+
+signal 1:
+0.29 -0.28 -0.22 -0.26 -0.19 -0.25 1.47 0.55 0.31 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.23 0.32 0.23 0.22 0.21 0.05 -0.32 0.06 0.23 0.23 0.29 0.43 0.71 1.09 1.56 2.09 2.74 3.07 3.5 4.01 4.47 5.29 4.44 3.83 3.5 3.41 3.04 2.25 1.66 1.18 0.79 0.46 0.27 0.15 0.04 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.01 -0.03 -0.14 -0.29 -0.36 -0.47 -0.29 -0.13 -0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.04 0.04 0.03 0.04 0.04 0.04 0.04 0.04 0.04 0.04 0.05 0.09 0.22 0.5 1.18 0.51 0.25 0.13 0.07 -0.2 0.36 0.1 0.08 -0.01 -0.17 -0.44 -0.26 -0.29 -0.31 -0.29 -0.28 -0.36 -0.31 -0.33 -0.27 -0.34 -0.36 -0.29 -0.33 -0.31 -0.21 -0.32 -0.28 -0.41 -0.14 0.38 -0.18 -0.18 -0.13 -0.21 -0.18 -0.24 -0.23 -0.23 -0.25 -0.25 -0.26 -0.25 -0.29 -0.29 -0.33 -0.33 -0.34 -0.37 -0.31 -0.34 -0.34 -0.35 -0.49 -0.22 0.27 -0.19 -0.33 -0.36 -0.38 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.4 -0.42 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.4 -0.41 -0.42 -0.53 -0.44 -0.41 -0.18 -0.42 -0.36 -0.39 -0.44 -0.47 -0.4 -0.51 -0.11 -0.35 -0.41 -0.45 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.49 -0.6 -0.5 -0.49 -0.5 -0.46 -0.29 -0.46 -0.44 -0.46
+
+signal 2:
+-0.33 -0.32 1.03 -0.12 0.21 0.28 0.29 0.29 0.29 0.35 0.42 0.56 0.85 1.26 1.86 2.52 3.07 3.71 4.72 3.73 3.05 2.51 1.92 1.4 0.85 0.49 0.25 0.13 0.06 -0.02 -0.06 -0.13 -0.19 -0.29 -0.33 -0.51 -0.36 -0.24 -0.16 -0.1 -0.02 0.02 0.16 0.41 0.72 1.09 1.52 2.11 3.18 2.14 1.54 1.13 0.85 0.51 0.3 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.16 0.15 0.11 -0.06 -0.36 -0.03 0.12 0.14 0.15 0.15 0.15 0.15 0.14 0.14 0.14 0.16 0.23 0.44 1.2 0.45 0.2 0.12 0.11 0.11 0.11 0.11 0.04 -0.11 -0.36 0.28 -0.38 -0.18 -0.14 -0.29 -0.28 -0.03 -0.45 -0.36 -0.37 -0.37 -0.38 -0.49 -0.34 -0.22 0.31 -0.24 -0.23 -0.25 -0.36 -0.35 -0.35 -0.36 -0.38 -0.33 -0.3 -0.41 -0.4 -0.42 -0.37 -0.39 -0.35 -0.14 -0.48 -0.4 -0.39 -0.46 -0.46 -0.46 -0.46 -0.55 -0.47 -0.46 -0.46 -0.46 -0.46 -0.46 -0.47 -0.46 -0.45 -0.36 -0.07 -0.33 -0.31 -0.37 -0.39 -0.35 -0.43 -0.46 -0.47 -0.46 -0.44 -0.46 -0.46 -0.46 -0.45 -0.47 -0.47 -0.38 -0.52 -0.57 -0.5 -0.5 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.43 -0.23 -0.6 -0.5 -0.5 -0.5 -0.48 -0.52 -0.5 -0.5 -0.5 -0.52 -0.52 -0.51 -0.54 -0.52 -0.54 -0.53 -0.47 -0.61 -0.55 -0.55 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.53 -0.38 -0.53 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.54 -0.55 -0.55 -0.55 -0.55 -0.55 -0.58 -0.56 -0.55 -0.55 -0.5 -0.56 -0.55 -0.54 -0.55 -0.42 -0.54 -0.56 -0.57 -0.57 -0.51 -0.67
+
+signal 3:
+-0.12 -0.38 -0.44 -0.42 -0.41 -0.41 -0.41 -0.37 -0.42 -0.43 -0.43 -0.43 -0.43 -0.43 -0.46 -0.44 -0.42 -0.44 -0.47 -0.35 -0.28 -0.23 -0.18 -0.16 -0.16 -0.16 -0.16 -0.16 -0.13 -0.08 -0.01 0.05 0.2 0.36 0.66 0.98 1.45 2.01 2.72 3.98 2.72 1.94 1.41 1.0 0.77 0.69 0.6 0.58 0.52 0.25 -0.11 -0.21 -0.21 -0.31 -0.39 -0.44 -0.49 -0.49 -0.5 -0.5 -0.53 -0.59 -0.5 -0.46 -0.44 -0.41 -0.39 -0.39 -0.39 -0.39 -0.39 -0.4 -0.4 -0.4 -0.4 -0.39 -0.39 -0.39 -0.37 -0.36 -0.34 -0.32 -0.27 -0.23 -0.17 -0.1 0.02 0.19 0.43 0.72 1.11 1.54 2.04 2.75 4.0 2.74 2.09 1.58 1.16 0.93 0.86 0.87 0.86 0.69 0.61 0.38 0.33 0.33 0.26 0.07 -0.2 -0.22 -0.3 -0.37 -0.41 -0.5 -0.53 -0.53 -0.52 -0.53 -0.53 -0.51 -0.51 -0.52 -0.5 -0.53 -0.6 -0.46 -0.42 -0.37 -0.34 -0.32 -0.32 -0.32 -0.32 -0.32 -0.32 -0.3 -0.3 -0.28 -0.27 -0.27 -0.27 -0.25 -0.19 -0.08 0.03 0.24 0.56 1.25 0.6 0.33 0.19 0.11 0.01 -0.27 -0.27 -0.31 -0.35 -0.44 -0.52 -0.5 -0.46 -0.5 -0.42 -0.55 -0.55 -0.55 -0.55 -0.55 -0.56 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.55 -0.54 -0.55 -0.55 -0.53 -0.5 -0.5 -0.5 -0.49 -0.49 -0.49 -0.46 -0.23 -0.44 -0.35 -0.37 -0.15 -0.33 -0.2 -0.28 -0.28 -0.23 -0.22 -0.26 -0.24 -0.22 -0.43 -0.18 -0.02 0.47 -0.1 -0.3 -0.37 -0.41 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.44 -0.45 -0.44 -0.44 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.45 -0.46 -0.47 -0.56 -0.5 -0.5 -0.53 -0.53 -0.55 -0.54 -0.54 -0.53 -0.52 -0.53 -0.53 -0.62 -0.38 -0.48 -0.45 -0.4 -0.47
+-----------------------------------------------------
+response..
+resp_6881ef723f7c81988f70ceb77e9a192f0cfedc3f6cccfea6
+o3-2025-04-16
+signal 1  
+Opening a hair above the axis, the curve slips for a moment into light negatives, then pops up into a modest hump at about index 6.  It idles on a flat, low-positive shelf until the low thirties, where it launches a steep ascent that tops out in its principal summit near index 43.  From there it glides downward, crossing zero and touching a shallow negative dip in the mid-sixties, swings back up into a noticeably narrower and lower hill peaking close to index 100, and afterwards drains away into a very long, almost level negative terrace disturbed only by small-amplitude ripples.  
+Best matching class: class_3  (alternatively class 6, but the peak positions and long final shelf line up more closely with class 3).
+
+signal 2  
+Starting a fraction below zero, the series shoots almost straight up to its highest crest around index 18.  It then falls into a mid-level trough centred in the mid-thirties before rebounding to a clearly smaller secondary hill at roughly index 48.  Beyond that point the profile dwindles through a sequence of ever-weaker undulations—a last minor bump appears near index 82—before sliding gently into an extended, slowly declining negative stretch.  
+Best matching class: class_2.
+
+signal 3  
+The trace begins with a mild downward glide that bottoms out near index 18, then surges upward to an early peak close to index 39.  It descends past zero into a broad negative plateau, after which it climbs again—this time to its overall maximum at about index 94.  Finally it eases downward and settles onto a long, low-lying negative shelf marked by only slight, low-amplitude noise.  
+Best matching class: class_4.
+
+class_3, class_2, class_4
+1.0
+None
+ResponseUsage(input_tokens=4050, input_tokens_details=InputTokensDetails(cached_tokens=0), output_tokens=8586, output_tokens_details=OutputTokensDetails(reasoning_tokens=8192), total_tokens=12636)
+pred class: class_3, class_2, class_4
+additional symbolic information obtained from KG:
+####################################
+QUERY: all symbolic fault information by name
+####################################
+query knowledge graph..
+
+            SELECT ?fault_name ?fault_desc ?severity WHERE {
+                ?sensor_fault a <http://www.semanticweb.org/sensor_fault_ontology#SensorFault> .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#fault_desc> ?fault_desc .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#name> ?fault_name .
+                ?sensor_fault <http://www.semanticweb.org/sensor_fault_ontology#severity> ?severity .
+                FILTER(STR(?fault_name) = "class_3, class_2, class_4")
+            }
+            
+[]

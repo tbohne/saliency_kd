@@ -1,0 +1,5 @@
+for saliency maps:	ARI: 0.530, NMI: 0.516, V-measure: 0.516, Purity: 0.759
+for input samples:	ARI: 0.511, NMI: 0.520, V-measure: 0.520, Purity: 0.700
+for multivariate:	ARI: 0.773, NMI: 0.737, V-measure: 0.737, Purity: 0.889
+
+k = 4, GT = 4

@@ -7,3 +7,11 @@ Lightning7/
 build/
 secret_config.py
 *.egg-info/
+CricketY/
+EOGVerticalSignal/
+ElectricDevices/
+EthanolLevel/
+MelbournePedestrian/
+Plane/
+SemgHandSubjectCh2/
+analysis/
