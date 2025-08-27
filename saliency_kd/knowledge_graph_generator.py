@@ -287,6 +287,7 @@ SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Attempt_Three = {  # concatenated
     },
 }
 
+# TODO: very bad matching performance (!)
 SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic = {  # concatenated roll, pitch and yaw accelerations
     # everything allowed, also raw values
     1: {
@@ -331,6 +332,49 @@ SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_Realistic = {  # concatenated rol
     },
 }
 
+SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_FINAL = {  # concatenated roll, pitch and yaw accelerations
+    1: {
+        "name": "class_1",
+        "fault_desc": "Beginning on a shallow negative plateau, the trace dips a little further at index 20, sweeps steadily upward to its earliest and tallest crest at index 58, plunges into a wide negative basin centred in the mid-70s, climbs again to a secondary summit about index 149, slides into another extended hollow spanning indices 171-178, then mounts a third marked peak at index 212 before fading in a gently noisy decline toward the negative side.",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "After a short flat positive start the curve makes a modest bump, dives to its deepest trough at index 29, rebounds to a middling crest around index 40, eases back, surges higher to a peak near index 63, slips into a choppy descent that bottoms just after index 100, suddenly rockets to its overall maximum at index 140, and thereafter undulates downward with smaller swings, ending a little below zero.",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "The record opens on a mild negative shelf, sinks slightly further at index 22, rises steadily through the axis to a first positive plateau topping out near index 69, collapses into an extended flat trench of almost constant depth from the high-70s through the 90s, climbs again to crests at indices 117 and 149 (the latter higher), eases back toward zero, falls to a deep pocket around index 185, and finishes with a hesitant recovery dotted with minor ripples.",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "Starting on a moderate positive ledge, the signal climbs to an early high at index 15, decays almost monotonically through zero in the mid-40s to a long level negative terrace centred on indices 80-90, then turns upward into a broad flat top around index 130, slips into a steep decline that bottoms near index 175, and finally rebounds to a smaller late-stage crest close to index 205 before easing off.",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "Opening just below zero, the trace rises through paired early peaks at indices 17 and 26 (the second higher), tumbles to its deepest valley at index 63, recovers into a long low-amplitude shelf straddling zero between roughly indices 80 and 110, pushes up to a moderate hump near index 120 and a broader plateau centred on 140, falls again into a prolonged negative table whose floor lies in the 160s, and ultimately stages a gradual comeback that tops out near index 225 before tapering away.",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "The curve begins on a flat positive shelf, plunges to its overall minimum at index 17, rebounds sharply to a strong crest near index 43, wavers and dips below zero in the 60s, sinks further to an extended negative plateau with a secondary floor at index 99, then climbs in a long stepped ascent to a gentle ridge spanning indices 120-150, finally drifting downward in small ripples while remaining above the axis.",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "Starting with a small positive plateau, the series collapses to a deep minimum at index 24, rockets to a tall peak at index 48, relaxes, swings negative again with a trough near index 98, falls still further to its lowest point at index 115, mounts a brisk ascent culminating in the global maximum around index 150, declines once more into the negative near index 175, and ends with a fresh climb peaking close to index 220 before subsiding.",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "Commencing on a gentle negative shelf the signal makes a minor dip to a local floor at index 9, accelerates upward to a sizeable crest at index 21, slides back through zero into a modest basin in the 50s, plunges to its deepest point at index 72, surges into a high plateau whose summit sits near index 89, declines gradually while oscillating, sinks into another negative pocket centred around index 123, rises to a small mid-range hump at index 162, drops briefly, then mounts a late powerful climb to a second major peak near index 200 before descending toward the end.",
+        "severity": "X"
+    },
+}
+
 SYMBOLIC_FAULT_INFO_Mallat_LLM = {
     1: {
         "name": "class_1",
@@ -370,6 +414,49 @@ SYMBOLIC_FAULT_INFO_Mallat_LLM = {
     8: {
         "name": "class_8",
         "fault_desc": "Starts in the negative range with a tiny extra sag, then follows a lengthy, almost linear rise through zero that builds a broad, slightly noisy positive shelf; gains additional height into a secondary, tighter crest, backs off in two stages to a near-zero landing, falls sharply into a wide negative basin, oscillates mildly, climbs late to the global rounded maximum, and finally drifts down in a slow, steady decline that settles in a pronounced negative well.",
+        "severity": "X"
+    },
+}
+
+SYMBOLIC_FAULT_INFO_Mallat_LLM_NEW = {
+    1: {
+        "name": "class_1",
+        "fault_desc": "It begins slightly below the axis, slips a few samples lower, then swings upward in a long, smooth climb that crosses zero and reaches a first rounded crest near index 37; after a short, uneven shoulder it sags and meanders around small values, dives to its deepest negative dip at about index 74, recovers through a noisy mid-series hollow centred near index 137 and finally accelerates into its broadest rise, topping out at the global maximum around index 210, before gliding back down with gentle oscillations to finish negative.",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "Starting moderately negative it falls a touch further to a shallow bottom around index 7, reverses and rises steadily through zero to an initial summit near index 26, then keeps climbing into a taller wave whose tip—and overall peak—appears close to index 44; the trace then drops abruptly into a mid-run valley at index 47, drifts in low-amplitude ripples, turns negative during the third quarter, and mounts one last but smaller crest near index 221 before easing downward again toward the end.",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "From an already negative level the curve dips only briefly, then embarks on a long, smooth ascent that takes it through the origin and onto a broad plateau peaking near index 28; it undulates gently downward, swells into a second but slightly higher crest around index 59, slides into its deepest trough near index 74, and thereafter alternates smaller waves—with a late, lower maximum around index 220—before edging back below zero in the closing samples.",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "The trace opens negative and keeps falling until about index 7, then turns and climbs smoothly, crossing zero and forming a first prominent peak near index 37; after a minor dip and a brief secondary crest at index 44 it tumbles to its greatest negative excursion around index 74, rises again through a noisy shoulder, and eventually produces a sustained late-series surge whose highest point occurs close to index 214, after which it descends gradually with small ripples into the negative zone once more.",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "An initial, gentle slide to a minimum at index 6 is followed by a steady, almost linear rise that crosses the axis and crests for the first time near index 36; a noisy plateau gives way to an abrupt plunge to the main negative trough at about index 74, the waveform then recovers, oscillates around small values, and builds a long, smooth climb that peaks globally near index 210 before slipping back down below zero toward the finish.",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "Beginning slightly negative it drifts lower to a shallow bottom at index 7, then embarks on an extended climb, crossing zero and fanning out into a broad high zone whose top (and overall maximum) sits near index 61; from there it steps down through a series of ripples, plummets to its deepest dip around index 74, rebounds in a modest mid-range hump, and ends with a gentle rise that stalls near index 210 before tapering away with small undulations.",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "The curve starts negative, sinks a little further until about index 5, then rises steadily through zero, developing an initial bump around index 31 and reaching its tallest crest—just over twice the starting magnitude—near index 40; it then slips off that peak, oscillates downward into a shallow mid-series hollow centred roughly at index 72, spends a long spell hovering just below zero, and finally lifts into a subdued late peak around index 217 before sliding back into negative territory at the close.",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "After a brief dip the signal mounts a gentle, sustained ascent that crosses zero and tops out in a first rounded high near index 38; it relaxes slightly, then pushes on to its global maximum around index 44, descends quickly into a sharp trough at about index 74, spends the middle section wavering close to the axis, and eventually rises again into a broad late crest peaking close to index 210, from which it glides downward in small undulations to end below zero.",
         "severity": "X"
     },
 }
@@ -432,6 +519,64 @@ SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM = {
     },
 }
 
+SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM_NEW = {
+    1: {
+        "name": "class_1",
+        "fault_desc": "It starts just above zero, sinks into a fairly long shallow negative basin, then rockets upward to its dominant summit around index 76, slides back down into a broad, almost flat negative plateau and, apart from a small secondary bump near index 164, finishes with only gentle low-level fluctuations.",
+        "severity": "X"
+    },
+    2: {
+        "name": "class_2",
+        "fault_desc": "Beginning slightly below zero, it climbs sharply to its main crest near index 15, drops into a mid-level dip, rebounds to a smaller hill at about index 43, and then fades through progressively weaker ripples into an extended, gently declining negative stretch.",
+        "severity": "X"
+    },
+    3: {
+        "name": "class_3",
+        "fault_desc": "The curve opens in weak negatives, accelerates into a steep mountain whose apex lies near index 40, plunges back through zero, rises into a broader but lower hill peaking around index 94, and finally decays into a long, nearly constant negative shelf with minor undulations.",
+        "severity": "X"
+    },
+    4: {
+        "name": "class_4",
+        "fault_desc": "After a mild early slide that bottoms out near index 17, it surges to an initial peak at index 36, retreats all the way to a deep negative plateau, climbs again to its highest crest close to index 89, and then eases downward into a sustained low-lying, lightly fluctuating negative band.",
+        "severity": "X"
+    },
+    5: {
+        "name": "class_5",
+        "fault_desc": "A modest positive start drifts below zero, followed by a single steep ramp to the tallest summit near index 64; the trace then slopes down through positive into negative territory, shows a secondary but much smaller swell centred on index 139, and finally settles on a broad, gently varying negative plain.",
+        "severity": "X"
+    },
+    6: {
+        "name": "class_6",
+        "fault_desc": "Opening with a shallow decline, the signal swings into an explosive rise that tops out near index 34, descends through positive values to a brief sub-zero dip, arches into a noticeably smaller crest around index 83, and thereafter glides into an ever-flattening negative terrace peppered with small ripples.",
+        "severity": "X"
+    },
+    7: {
+        "name": "class_7",
+        "fault_desc": "It begins as an almost level mild-negative plateau, leaps upward to a prominent maximum at about index 58, rolls downward past zero into a modest trough, rises again to a mid-sized hill near index 110, and then gradually subsides into a steady, lightly noisy negative table.",
+        "severity": "X"
+    },
+    8: {
+        "name": "class_8",
+        "fault_desc": "Starting in moderate negatives and dipping slightly further, the trace sweeps upward into its dominant peak around index 43, glides downward toward zero, mounts a lower second peak near index 120, and finally descends smoothly into a deep, almost constant negative shelf with faint oscillations.",
+        "severity": "X"
+    },
+    9: {
+        "name": "class_9",
+        "fault_desc": "Launching from a sizeable positive level, it cascades downward through zero into a broad negative basin, surges in a long climb to its highest summit close to index 75, and thereafter tapers away through a patchwork of smaller ripples into an extended, slowly deepening negative plateau.",
+        "severity": "X"
+    },
+    10: {
+        "name": "class_10",
+        "fault_desc": "After a short flat negative opening it rises steadily to a modest crest near index 19, slips back below zero, accelerates into a sharp ascent that reaches the overall maximum around index 52, slopes downward across zero again, shows a minor bump roughly at index 109, and ends in a prolonged, gently drifting negative trench.",
+        "severity": "X"
+    },
+    11: {
+        "name": "class_11",
+        "fault_desc": "Beginning with an undulating positive stretch that builds to its main peak near index 16, the series meanders downward through smaller crests, crosses zero in the seventies, and continues into a long descent that settles into a deep, almost stationary negative plateau with only slight low-amplitude noise.",
+        "severity": "X"
+    },
+}
+
 
 class KnowledgeGraphGenerator:
     """
@@ -470,9 +615,9 @@ class KnowledgeGraphGenerator:
 
 if __name__ == '__main__':
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM.keys()) + 1):
+    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_Mallat_LLM_NEW.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM[class_idx]['severity']
+            SYMBOLIC_FAULT_INFO_Mallat_LLM_NEW[class_idx]['name'],
+            SYMBOLIC_FAULT_INFO_Mallat_LLM_NEW[class_idx]['fault_desc'],
+            SYMBOLIC_FAULT_INFO_Mallat_LLM_NEW[class_idx]['severity']
         )
