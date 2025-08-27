@@ -16,7 +16,7 @@ SYMBOLIC_EXAMPLE = "\n\nexample_class: starting low, slowly but steadily going u
 # PROMPT_APPENDIX = "\n\nDescribe them at roughly the same granularity as the example above."
 
 # removed: (as brief as possible)
-PROMPT_APPENDIX = "\n\nDescribe them at roughly the same granularity as the example above and in a way in which symbolic fault descriptions of known anomalies for some signal types stored in a database could realistically look like. Don't use raw values - indicating that values are positive or negative is feasible, but no exact value."
+PROMPT_APPENDIX = "\n\nDescribe them at roughly the same granularity as the example above (as a sentence, not bullet points) - focus on the broad shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute values in the descriptions (except indices)."
 
 
 class LLMSymbolicDescGen:
