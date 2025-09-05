@@ -97,5 +97,4 @@ class KnowledgeGraphQueryTool:
 
 if __name__ == '__main__':
     qt = KnowledgeGraphQueryTool()
-    # some examples below
     qt.print_res(qt.query_all_fault_desc())

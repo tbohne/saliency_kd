@@ -22,7 +22,7 @@ PROMPT_APPENDIX = ("\n\nDescribe them at the same granularity as the examples ab
                    " best guess and then mention the alternative in brackets as well. Important: only match things that"
                    " reasonably match; it is crucial to also identify signals that don't match any class. There also"
                    " might be duplicates, i.e., more than one signal matching the same class. Important: not every"
-                   " detail must match; it should match the broad scheme best, not every detail. Focus on the broad"
+                   " detail must match; it should match the broad scheme best. Focus on the broad"
                    " shape, not minor details, but mention the index of relevant peaks. However, avoid using absolute"
                    " values in the descriptions (except indices). When it comes to the matching, the indices of peaks"
                    " should allow some tolerance for deviations; they should only roughly match.")
