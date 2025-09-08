@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # @author Tim Bohne
 
+import argparse
 import uuid
 
 from nesy_diag_ontology.fact import Fact
@@ -815,10 +816,25 @@ class KnowledgeGraphGenerator:
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='generate knowledge graph for dataset')
+    parser.add_argument(
+        '--dataset', action='store', type=str,
+        help='dataset to gen KG for: ["InsectWingbeatSound", "Mallat", "UWaveGestureLibraryAll"]', required=True
+    )
+    args = parser.parse_args()
+    if args.dataset == "InsectWingbeatSound":
+        dataset = SYMBOLIC_FAULT_INFO_InsectWingbeatSound_LLM_FINAL
+    elif args.dataset == "Mallat":
+        dataset = SYMBOLIC_FAULT_INFO_Mallat_LLM_FINAL
+    elif args.dataset == "UWaveGestureLibraryAll":
+        dataset = SYMBOLIC_FAULT_INFO_UWaveGestureLibraryAll_LLM_FINAL
+    else:
+        dataset = SYMBOLIC_FAULT_INFO_Mallat_LLM_FINAL
+
     kg_gen = KnowledgeGraphGenerator()
-    for class_idx in range(1, len(SYMBOLIC_FAULT_INFO_Mallat_LLM_FINAL.keys()) + 1):
+    for class_idx in range(1, len(dataset.keys()) + 1):
         kg_gen.extend_knowledge_graph_with_sensor_fault_data(
-            SYMBOLIC_FAULT_INFO_Mallat_LLM_FINAL[class_idx]['name'],
-            SYMBOLIC_FAULT_INFO_Mallat_LLM_FINAL[class_idx]['fault_desc'],
-            SYMBOLIC_FAULT_INFO_Mallat_LLM_FINAL[class_idx]['severity']
+            dataset[class_idx]['name'],
+            dataset[class_idx]['fault_desc'],
+            dataset[class_idx]['severity']
         )
