@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # @author Tim Bohne
 
+import argparse
 import base64
 from typing import List, Dict
 
@@ -36,19 +37,17 @@ class LLMAnalysis:
         self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.kgqt = KnowledgeGraphQueryTool()
 
-    def prompt_gpt(self, input_prompt: List[Dict]) -> str:
+    def prompt_gpt(self, model: str, input_prompt: List[Dict]) -> str:
         """
         Prompt GPT model.
 
+        :param model: LLM (OpenAI) model to be used
         :param input_prompt: input prompt(s)
         :return: parsed GPT response string
         """
         response = self.client.responses.create(
-            # model="gpt-4.1",
-            # model="gpt-4.1-2025-04-14",
-            # model="gpt-4o",  # works
-            model="o3-2025-04-16",  # --> best, but expensive
-            # model="gpt-4o-mini",
+            # "o3-2025-04-16" (best, but expensive), "gpt-4o" (works), "gpt-4.1", "gpt-4.1-2025-04-14", "gpt-4o-mini"
+            model=model,
             # max_tokens=300,  # controlling costs (meant for responses)
             input=input_prompt
         )
@@ -66,14 +65,16 @@ class LLMAnalysis:
         return response.output_text.split("\n")[-1]
 
     @staticmethod
-    def get_centroid_img_base64() -> str:
+    def get_centroid_img_base64(llm_input: str) -> str:
         """
         Retrieves the centroid image as base64-coded string.
 
+        :param llm_input: input signals (img) for LLM analysis
         :return: centroid image as base64-coded string
         """
+        assert llm_input.endswith(".png")
         # read img as binary
-        with open("centroids4llm.png", "rb") as signal_img:
+        with open(llm_input, "rb") as signal_img:
             return base64.b64encode(signal_img.read()).decode('utf-8')
 
     @staticmethod
@@ -88,18 +89,21 @@ class LLMAnalysis:
             return base64.b64encode(signal_img.read()).decode('utf-8')
 
     @staticmethod
-    def get_centroids_ts() -> np.ndarray:
+    def get_centroids_ts(llm_input: str) -> np.ndarray:
         """
         Retrieves the centroid time series as numpy array.
 
+        :param llm_input: input signals (ts) for LLM analysis
         :return: centroid time series
         """
-        return np.load("centroids4llm.npy")
+        assert llm_input.endswith(".npy")
+        return np.load(llm_input)
 
-    def gen_prompt_img(self) -> List[Dict]:
+    def gen_prompt_img(self, llm_input: str) -> List[Dict]:
         """
         Generates prompt for textual description of input image.
 
+        :param llm_input: input signals (img) for LLM analysis
         :return: prompt for GPT model
         """
         name_desc_pairs = self.kgqt.query_all_fault_desc()
@@ -122,21 +126,22 @@ class LLMAnalysis:
                     # },
                     {
                         "type": "input_image",
-                        "image_url": f"data:image/png;base64,{self.get_centroid_img_base64()}"
+                        "image_url": f"data:image/png;base64,{self.get_centroid_img_base64(llm_input)}"
                     }
                 ]
             }
         ]
 
-    def gen_prompt_ts(self) -> List[Dict]:
+    def gen_prompt_ts(self, llm_input: str) -> List[Dict]:
         """
         Generates prompt for textual description of time series signals.
 
+        :param llm_input: input signals (ts) for LLM analysis
         :return: prompt for GPT model
         """
         name_desc_pairs = self.kgqt.query_all_fault_desc()
         class_prompt = "\n".join([i[0] + ": " + i[1] for i in name_desc_pairs])
-        arr = self.get_centroids_ts()
+        arr = self.get_centroids_ts(llm_input)
         centroid_lst = [" ".join([str(round(v, 2)) for v in c.tolist()]) for i, c in enumerate(arr)]
         str_centroids = "\n\n".join(f"signal {i + 1}:\n{c}" for i, c in enumerate(centroid_lst))
         prompt = INIT_PROMPT + class_prompt + MODE_PROMPT_TS + PROMPT_APPENDIX + END_NOTE + "\n\n" + str_centroids
@@ -157,9 +162,28 @@ class LLMAnalysis:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='analyze signals with LLM')
+    parser.add_argument(
+        "--mode",
+        choices=["ts", "img"],
+        default="ts",
+        help="choose between time series analysis (ts, default) and image analysis (img)",
+    )
+    parser.add_argument('--input', type=str, required=True, help='centroids for LLM processing')
+    parser.add_argument(
+        "--model",
+        choices=["o3-2025-04-16", "gpt-4o", "gpt-4.1", "gpt-4.1-2025-04-14", "gpt-4o-mini"],
+        default="o3-2025-04-16",
+        help="choose LLM model between o3-2025-04-16 (default), gpt-4o, gpt-4.1, gpt-4.1-2025-04-14 and gpt-4o-mini"
+    )
+    args = parser.parse_args()
     llma = LLMAnalysis()
-    # predicted_class = llma.prompt_gpt(llma.gen_prompt_img())
-    predicted_class = llma.prompt_gpt(llma.gen_prompt_ts())
+    if args.mode == "ts":
+        predicted_class = llma.prompt_gpt(args.model, llma.gen_prompt_ts(args.input))
+    elif args.mode == "img":
+        predicted_class = llma.prompt_gpt(args.model, llma.gen_prompt_img(args.input))
+    else:
+        predicted_class = llma.prompt_gpt(args.model, llma.gen_prompt_ts(args.input))
     print("pred class:", predicted_class)
 
     # retrieve additional symbolic information
