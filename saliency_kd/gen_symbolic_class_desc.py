@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # @author Tim Bohne
 
+import argparse
 from typing import List, Dict
 
 import numpy as np
@@ -29,19 +30,17 @@ class LLMSymbolicDescGen:
         self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.kgqt = KnowledgeGraphQueryTool()
 
-    def prompt_gpt(self, input_prompt: List[Dict]) -> str:
+    def prompt_gpt(self, model: str, input_prompt: List[Dict]) -> str:
         """
         Prompt GPT model.
 
+        :param model: LLM (OpenAI) model to be used
         :param input_prompt: input prompt(s)
         :return: parsed GPT response string
         """
         response = self.client.responses.create(
-            # model="gpt-4.1",
-            # model="gpt-4.1-2025-04-14",
-            # model="gpt-4o",  # works
-            model="o3-2025-04-16",  # --> best, but expensive
-            # model="gpt-4o-mini",
+            # "o3-2025-04-16" (best, but expensive), "gpt-4o" (works), "gpt-4o-mini", "gpt-4.1-2025-04-14", "gpt-4.1"
+            model=model,
             # max_tokens=300,  # controlling costs (meant for responses)
             input=input_prompt
         )
@@ -59,21 +58,24 @@ class LLMSymbolicDescGen:
         return response.output_text.split("\n")[-1]
 
     @staticmethod
-    def get_medoids_ts() -> np.ndarray:
+    def get_medoids_ts(llm_input: str) -> np.ndarray:
         """
         Retrieves the medoids (time series) to generate textual descriptions for.
 
+        :param llm_input: medoids for LLM description
         :return: numpy array of medoids
         """
-        return np.load("medoids4llm.npy")
+        assert llm_input.endswith(".npy")
+        return np.load(llm_input)
 
-    def gen_prompt_ts(self) -> List[Dict]:
+    def gen_prompt_ts(self, llm_input: str) -> List[Dict]:
         """
         Generates prompt for textual description of time series signals.
 
+        :param llm_input: medoids for LLM description
         :return: prompt for GPT model
         """
-        arr = self.get_medoids_ts()
+        arr = self.get_medoids_ts(llm_input)
         medoid_lst = [" ".join([str(round(v, 2)) for v in c.tolist()]) for i, c in enumerate(arr)]
         str_medoids = "\n\n".join(f"signal {i + 1}:\n{c}" for i, c in enumerate(medoid_lst))
         prompt = INIT_PROMPT + MODE_PROMPT_TS + SYMBOLIC_EXAMPLE + PROMPT_APPENDIX + "\n\n" + str_medoids
@@ -94,6 +96,15 @@ class LLMSymbolicDescGen:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='generate textual class descriptions with LLM')
+    parser.add_argument('--input', type=str, required=True, help='medoids for LLM description')
+    parser.add_argument(
+        "--model",
+        choices=["o3-2025-04-16", "gpt-4o", "gpt-4.1", "gpt-4.1-2025-04-14", "gpt-4o-mini"],
+        default="o3-2025-04-16",
+        help="choose LLM model between o3-2025-04-16 (default), gpt-4o, gpt-4.1, gpt-4.1-2025-04-14 and gpt-4o-mini"
+    )
+    args = parser.parse_args()
     llm_sym_desc_gen = LLMSymbolicDescGen()
-    output = llm_sym_desc_gen.prompt_gpt(llm_sym_desc_gen.gen_prompt_ts())
+    output = llm_sym_desc_gen.prompt_gpt(args.model, llm_sym_desc_gen.gen_prompt_ts(args.input))
     print("output:", output)
