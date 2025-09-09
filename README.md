@@ -48,14 +48,15 @@ The `.nq.gz` file does not have to be extracted. The n-triples / n-quads file ca
 
 ## Knowledge Graph Query Tool
 
-The `KnowledgeGraphQueryTool` provides a library of predefined SPARQL queries and response processing to access information stored in the knowledge graph that is used in the process, e.g.:
+The `KnowledgeGraphQueryTool` provides a library of predefined SPARQL queries and response processing to access information stored in the knowledge graph, e.g.:
 ```python
 qt = KnowledgeGraphQueryTool(kg_url='http://127.0.0.1:3030')
 qt.query_all_fault_desc()
 ```
 ```
 $ python saliency_kd/knowledge_graph_query_tool.py
-
+```
+```
 ####################################
 QUERY: all symbolic fault descriptions
 ####################################
@@ -76,9 +77,8 @@ query knowledge graph..
 
 ```
 python saliency_kd/llm_analysis.py --mode {ts | img} --input llm_input/Mallat/class_0/centroids4llm.npy --model o3-2025-04-16
-
-...
-
+```
+```
 response..
 resp_68bee92f519c81938564553944325e4c022f00a2c3783a3d
 o3-2025-04-16
@@ -108,8 +108,8 @@ Runs $n$ LLM analyses (to be configured in the script) and logs the results into
 
 ```
 python saliency_kd/gen_symbolic_class_desc.py --input llm_input/Mallat/medoids4llm.npy --model o3-2025-04-16
-
-...
+```
+```
 response..
 resp_68bfe1bda81c8193a09503a58d40bde20b9053c5437ad254
 o3-2025-04-16
