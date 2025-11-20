@@ -146,6 +146,15 @@ Signal 1: It starts slightly below zero, sinks a little further during the first
 
 ## Related Publications
 
+Preprint:
 ```bibtex
-@inproceedings{TODO}
+@misc{Bohne:2025,
+    title={Saliency Map-Guided Knowledge Discovery for Subclass Identification with LLM-Based Symbolic Approximations},
+    author={Tim Bohne and Anne-Kathrin Patricia Windler and Martin Atzmueller},
+    year={2025},
+    eprint={2511.07126},
+    archivePrefix={arXiv},
+    primaryClass={cs.AI},
+    url={https://arxiv.org/abs/2511.07126},
+}
 ```
