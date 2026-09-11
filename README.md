@@ -1,5 +1,7 @@
 # Saliency Map-Guided Knowledge Discovery for Subclass Identification with LLM-Based Symbolic Approximations
 
+<img src="img/proc_v11.svg" style="width: 100%;">
+
 ## Dependencies
 
 - for Python requirements, cf. `requirements.txt`
